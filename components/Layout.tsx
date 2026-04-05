@@ -414,7 +414,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
             )}
 
             {/* BOTTOM NAVIGATION */}
-            <div className="fixed bottom-0 inset-x-0 z-50 pointer-events-none flex justify-center pb-4 sm:pb-8">
+            <div id="global-bottom-nav" className="fixed bottom-0 inset-x-0 z-50 pointer-events-none flex justify-center pb-4 sm:pb-8 transition-transform duration-300 ease-in-out translate-y-0">
                 <div 
                     className="pointer-events-auto overflow-x-auto no-scrollbar max-w-[95vw] sm:max-w-full px-2 pb-2 scroll-smooth snap-x"
                     onScroll={() => {

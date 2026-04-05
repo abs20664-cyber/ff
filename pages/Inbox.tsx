@@ -534,9 +534,40 @@ const Inbox: React.FC = () => {
         }
     }, [messages.length, remoteTyping, isScrollingUp]);
 
+    // Reset global nav on unmount
+    useEffect(() => {
+        return () => {
+            const nav = document.getElementById('global-bottom-nav');
+            if (nav) nav.style.transform = 'translateY(0)';
+        };
+    }, []);
+
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        setIsScrollingUp(scrollHeight - scrollTop - clientHeight > 200);
+        const isNearBottom = scrollHeight - scrollTop - clientHeight < 150;
+        setIsScrollingUp(!isNearBottom);
+
+        const nav = document.getElementById('global-bottom-nav');
+        if (nav) {
+            if (isNearBottom) {
+                nav.style.transform = 'translateY(150%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+        }
+    };
+
+    const handleSidebarScroll = (e: React.UIEvent<HTMLDivElement>) => {
+        const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+        const isNearBottom = scrollHeight - scrollTop - clientHeight < 50;
+        const nav = document.getElementById('global-bottom-nav');
+        if (nav) {
+            if (isNearBottom) {
+                nav.style.transform = 'translateY(150%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+        }
     };
 
     const filteredSidebar = useMemo(() => {
@@ -614,7 +645,7 @@ const Inbox: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto scroll-hide pb-32">
+                <div className="flex-1 overflow-y-auto scroll-hide pb-4" onScroll={handleSidebarScroll}>
                     {/* Groups Section */}
                     {filteredSidebar.groups.length > 0 && (
                         <div className="mb-4">
@@ -800,7 +831,7 @@ const Inbox: React.FC = () => {
                         </div>
 
                         {/* Input & Control Area */}
-                        <div className="p-4 pb-32 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
+                        <div className="p-4 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
                             {editingMessage && (
                                 <div className="mb-3 p-3 bg-primary/5 rounded-xl flex items-center justify-between border border-primary/10">
                                     <div className="flex items-center gap-3 min-w-0">
