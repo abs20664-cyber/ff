@@ -66,7 +66,7 @@ const EconomicDashboard: React.FC = () => {
     const [paymentRecords, setPaymentRecords] = useState<StudentPaymentRecord[]>([]);
     
     const [searchTerm, setSearchTerm] = useState('');
-    const [activeTab, setActiveTab] = useState<'overview' | 'students' | 'teachers' | 'audit' | 'sessions' | 'timetable'>('overview');
+    const [activeTab, setActiveTab] = useState<'overview' | 'students' | 'teachers' | 'audit'>('overview');
     const [sessions, setSessions] = useState<ClassSession[]>([]);
     const [filterStatus, setFilterStatus] = useState<string>('all');
     const [editingNote, setEditingNote] = useState<string | null>(null);
@@ -655,12 +655,12 @@ const EconomicDashboard: React.FC = () => {
                     
                     {/* Tabs - Unified & Scrollable (Top) */}
                     <div className="flex bg-muted/20 dark:bg-muted/10 p-1 rounded-2xl overflow-x-auto scroll-hide max-w-full">
-                        {(['overview', 'students', 'teachers', 'audit', 'sessions', 'timetable'] as const).map(tab => (
+                        {(['overview', 'students', 'teachers', 'audit'] as const).map(tab => (
                             <button 
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap ${activeTab === tab ? 'bg-surface dark:bg-muted/20 text-primary shadow-soft' : 'text-text-secondary hover:text-text'}`}>
-                                {tab === 'overview' ? 'Overview' : tab === 'students' ? t('economic.studentSubs') : tab === 'teachers' ? t('economic.teacherPayments') : tab === 'audit' ? 'Audit' : tab === 'sessions' ? 'Sessions' : 'Timetable'}
+                                {tab === 'overview' ? 'Overview' : tab === 'students' ? t('economic.studentSubs') : tab === 'teachers' ? t('economic.teacherPayments') : 'Audit'}
                             </button>
                         ))}
                     </div>
@@ -824,52 +824,7 @@ const EconomicDashboard: React.FC = () => {
                 </div>
             )}
 
-            {activeTab === 'sessions' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div className="bg-surface dark:bg-background border border-border rounded-[2.5rem] overflow-hidden shadow-xl p-8">
-                        <h3 className="text-sm font-black uppercase tracking-widest text-text mb-6">Scheduled Sessions</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {sessions.map(s => (
-                                <div key={s.id} className="p-6 bg-surface dark:bg-muted/10 rounded-2xl border border-border">
-                                    <h4 className="font-black text-lg text-text mb-2">{s.name}</h4>
-                                    <p className="text-xs text-text-secondary font-bold uppercase tracking-widest mb-4">{s.date} • {s.time} - {s.endTime}</p>
-                                    <span className="px-3 py-1 rounded-full text-[9px] font-black uppercase bg-primary/10 text-primary">{s.type}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
 
-            {activeTab === 'timetable' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div className="bg-surface dark:bg-background border border-border rounded-[2.5rem] overflow-hidden shadow-xl p-8">
-                        <h3 className="text-sm font-black uppercase tracking-widest text-text mb-6">Fixed Timetable</h3>
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-start border-collapse">
-                                <thead className="sticky top-0 z-10">
-                                    <tr className="bg-surface dark:bg-background border-b border-border">
-                                        <th className="px-4 py-3 text-[10px] font-black uppercase tracking-widest text-text-secondary text-start">Time</th>
-                                        {DAYS_OF_WEEK.map(day => (
-                                            <th key={day} className="px-4 py-3 text-[10px] font-black uppercase tracking-widest text-text-secondary text-center">{day}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-border">
-                                    {HOURS_OF_DAY.map(hour => (
-                                        <tr key={hour}>
-                                            <td className="px-4 py-3 text-[10px] font-black uppercase tracking-widest text-text-secondary text-start">{hour}</td>
-                                            {DAYS_OF_WEEK.map(day => (
-                                                <td key={`${day}-${hour}`} className="px-4 py-3 border border-border"></td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             {activeTab === 'audit' && (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
