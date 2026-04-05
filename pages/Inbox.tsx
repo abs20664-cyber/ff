@@ -534,41 +534,46 @@ const Inbox: React.FC = () => {
         }
     }, [messages.length, remoteTyping, isScrollingUp]);
 
-    // Reset global nav on unmount
+    const observerRef = useRef<IntersectionObserver | null>(null);
+
     useEffect(() => {
+        const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+            const nav = document.getElementById('global-bottom-nav');
+            if (nav) {
+                const isAtBottom = entries.some(e => e.isIntersecting);
+                if (isAtBottom) {
+                    nav.style.transform = 'translateY(150%)';
+                } else {
+                    nav.style.transform = 'translateY(0)';
+                }
+            }
+        };
+
+        observerRef.current = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
+
+        // A tiny delay to ensure markers are mounted before observing
+        const timeout = setTimeout(() => {
+            const markers = document.querySelectorAll('.bottom-scroll-marker');
+            markers.forEach(m => observerRef.current?.observe(m));
+        }, 500);
+
         return () => {
+            clearTimeout(timeout);
+            observerRef.current?.disconnect();
             const nav = document.getElementById('global-bottom-nav');
             if (nav) nav.style.transform = 'translateY(0)';
         };
-    }, []);
+    }, [activeTarget]);
+
+    useEffect(() => {
+        if (scrollRef.current && !isScrollingUp) {
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+    }, [messages.length, remoteTyping, isScrollingUp]);
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
         setIsScrollingUp(scrollHeight - scrollTop - clientHeight > 200);
-        
-        const isNearBottom = scrollHeight - scrollTop - clientHeight <= 5;
-
-        const nav = document.getElementById('global-bottom-nav');
-        if (nav) {
-            if (isNearBottom) {
-                nav.style.transform = 'translateY(150%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-        }
-    };
-
-    const handleSidebarScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        const isNearBottom = scrollHeight - scrollTop - clientHeight <= 5;
-        const nav = document.getElementById('global-bottom-nav');
-        if (nav) {
-            if (isNearBottom) {
-                nav.style.transform = 'translateY(150%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-        }
     };
 
     const filteredSidebar = useMemo(() => {
@@ -646,7 +651,7 @@ const Inbox: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto scroll-hide pb-4" onScroll={handleSidebarScroll}>
+                <div className="flex-1 overflow-y-auto scroll-hide pb-4 relative">
                     {/* Groups Section */}
                     {filteredSidebar.groups.length > 0 && (
                         <div className="mb-4">
@@ -714,6 +719,7 @@ const Inbox: React.FC = () => {
                             </div>
                         </div>
                     )}
+                    <div className="bottom-scroll-marker h-1 w-full shrink-0"></div>
                 </div>
             </div>
 
@@ -829,6 +835,7 @@ const Inbox: React.FC = () => {
                                     <ArrowDown size={18} />
                                 </button>
                             )}
+                            <div className="bottom-scroll-marker h-1 w-full shrink-0"></div>
                         </div>
 
                         {/* Input & Control Area */}
