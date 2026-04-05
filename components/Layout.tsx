@@ -361,11 +361,17 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                     )}
                 </motion.header>
 
-                <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-12 relative scroll-smooth pb-24 sm:pb-36 pt-6 sm:pt-20">
-                    <div className="max-w-[1400px] mx-auto">
+                {currentPath === '/inbox' ? (
+                    <div className="flex-1 relative overflow-hidden">
                         {children}
                     </div>
-                </div>
+                ) : (
+                    <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-12 relative scroll-smooth pb-24 sm:pb-36 pt-6 sm:pt-20">
+                        <div className="max-w-[1400px] mx-auto">
+                            {children}
+                        </div>
+                    </div>
+                )}
 
             {/* POPUPS (Outside nav to avoid clipping) */}
             {(isLangOpen || isNotifOpen) && (

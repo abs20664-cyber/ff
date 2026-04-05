@@ -597,11 +597,11 @@ const Inbox: React.FC = () => {
     }, [t]);
 
     return (
-        <div className="flex h-screen overflow-hidden bg-surface dark:bg-institutional-950">
+        <div className="flex h-full w-full overflow-hidden bg-surface/50 dark:bg-institutional-950/50 pb-[100px] sm:pb-[140px]">
             
             {/* Sidebar View */}
-            <div className={`${showConversation ? 'hidden lg:flex' : 'flex'} w-full lg:w-[380px] flex-col border-r border-institutional-100 dark:border-institutional-900 shrink-0 transition-all`}>
-                <div className="p-6 space-y-6">
+            <div className={`${showConversation ? 'hidden lg:flex' : 'flex'} w-full lg:w-[400px] flex-col border-r border-institutional-100 dark:border-institutional-900 shrink-0 transition-all bg-surface/80 dark:bg-institutional-950/80 backdrop-blur-3xl`}>
+                <div className="p-6 space-y-6 pt-8">
                     <div className="flex items-center justify-between">
                         <h3 className="text-2xl font-bold text-institutional-900 dark:text-institutional-50">{t('nav.inbox')}</h3>
                         {user?.role === 'teacher' && (
@@ -695,11 +695,11 @@ const Inbox: React.FC = () => {
             </div>
 
             {/* Main Conversation Window */}
-            <div className={`${!showConversation ? 'hidden lg:flex' : 'flex'} flex-1 flex-col bg-surface dark:bg-institutional-950 transition-all relative overflow-hidden`}>
+            <div className={`${!showConversation ? 'hidden lg:flex' : 'flex'} flex-1 flex-col bg-surface/30 dark:bg-institutional-950/30 backdrop-blur-sm transition-all relative overflow-hidden`}>
                 {activeTarget ? (
                     <>
                         {/* Conversation Header */}
-                        <div className="px-6 py-4 border-b border-border flex items-center justify-between glass sticky top-0 z-30 shadow-xs relative">
+                        <div className="px-6 py-4 border-b border-institutional-100 dark:border-institutional-800 glass sticky top-0 z-30 shadow-xs relative">
                             {/* Decorative glowing gradient for header */}
                             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none opacity-50"></div>
                             <div className="flex items-center gap-4 min-w-0 relative z-10">
@@ -815,45 +815,45 @@ const Inbox: React.FC = () => {
                         </div>
 
                         {/* Input & Control Area */}
-                        <div className="p-4 pb-28 sm:pb-32 lg:pb-8 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
+                        <div className="p-4 bg-gradient-to-t from-surface dark:from-institutional-950 to-transparent">
                             {editingMessage && (
-                                <div className="mb-3 p-3 bg-primary/5 rounded-xl flex items-center justify-between border border-primary/10">
+                                <div className="mb-3 p-3 bg-primary/5 rounded-2xl flex items-center justify-between border border-primary/20 shadow-sm backdrop-blur-md">
                                     <div className="flex items-center gap-3 min-w-0">
-                                        <div className="p-2 bg-primary text-institutional-50 rounded-lg"><Edit2 size={16} /></div>
+                                        <div className="p-2 bg-primary text-white rounded-xl shadow-sm"><Edit2 size={16} /></div>
                                         <div className="min-w-0">
                                             <p className="text-[11px] font-bold text-primary uppercase tracking-wider">{t('inbox.editMessage')}</p>
-                                            <p className="text-sm text-institutional-600 dark:text-institutional-300 truncate">{editingMessage.text}</p>
+                                            <p className="text-sm text-institutional-700 dark:text-institutional-200 truncate font-medium">{editingMessage.text}</p>
                                         </div>
                                     </div>
-                                    <button onClick={() => { setEditingMessage(null); setInputText(''); }} className="p-1 text-institutional-600 hover:text-danger"><X size={18} /></button>
+                                    <button onClick={() => { setEditingMessage(null); setInputText(''); }} className="p-1.5 text-institutional-600 hover:bg-danger/10 hover:text-danger rounded-xl transition-all"><X size={18} /></button>
                                 </div>
                             )}
                             
                             {(activeTarget.type === 'group' && activeTarget.isBroadcast && user?.role === 'student') ? (
-                                <div className="flex items-center justify-center p-4 bg-institutional-50 dark:bg-institutional-900/50 rounded-xl border border-dashed border-institutional-200 dark:border-institutional-800">
-                                    <p className="text-sm text-institutional-600 flex items-center gap-2">
-                                        <ShieldAlert size={16} />
+                                <div className="flex items-center justify-center p-4 bg-institutional-50/80 dark:bg-institutional-900/80 backdrop-blur-md rounded-2xl border border-dashed border-institutional-300 dark:border-institutional-700 mx-auto max-w-4xl shadow-sm">
+                                    <p className="text-sm font-semibold text-institutional-600 dark:text-institutional-400 flex items-center gap-2">
+                                        <ShieldAlert size={18} />
                                         {t('inbox.broadcastOnly') || 'Only teachers can send messages here.'}
                                     </p>
                                 </div>
                             ) : isRecording ? (
-                                <div className="flex items-center gap-4 w-full bg-institutional-50 dark:bg-institutional-900 p-2 rounded-full border border-primary/20 animate-in fade-in duration-200 max-w-4xl mx-auto">
+                                <div className="flex items-center gap-4 w-full glass p-2 rounded-full border border-primary/20 shadow-strong animate-in fade-in duration-200 max-w-4xl mx-auto">
                                     <div className="flex items-center gap-2 px-4 flex-1">
-                                        <div className="w-3 h-3 bg-danger rounded-full animate-pulse" />
+                                        <div className="w-3 h-3 bg-danger rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                                         <span className="text-sm font-mono font-bold text-danger">
                                             {Math.floor(recordingTime / 60)}:{(recordingTime % 60).toString().padStart(2, '0')}
                                         </span>
-                                        <span className="text-xs text-institutional-600 ml-2">/ 1:00</span>
+                                        <span className="text-xs font-semibold text-institutional-500 ml-2">/ 1:00</span>
                                     </div>
-                                    <button type="button" onClick={cancelRecording} className="p-2 text-institutional-600 hover:text-danger transition-colors">
+                                    <button type="button" onClick={cancelRecording} className="p-2 text-institutional-500 hover:text-danger hover:bg-danger/10 rounded-full transition-colors">
                                         <Trash2 size={20} />
                                     </button>
-                                    <button type="button" onClick={stopRecording} className="p-2 bg-primary text-institutional-50 rounded-full shadow-md hover:bg-primary-hover transition-all">
+                                    <button type="button" onClick={stopRecording} className="p-2.5 bg-gradient-to-br from-primary to-primary-hover text-white rounded-full shadow-md hover:shadow-lg transition-all scale-105">
                                         <Send size={20} className={isRTL ? 'rotate-180' : ''} />
                                     </button>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSend} className="glass rounded-[32px] p-1.5 flex flex-col gap-2 max-w-4xl mx-auto shadow-soft mb-2 transition-all hover:shadow-strong focus-within:shadow-strong focus-within:border-primary/40">
+                                <form onSubmit={handleSend} className="glass rounded-[2rem] p-1.5 flex flex-col gap-2 max-w-4xl mx-auto shadow-strong mb-2 transition-all focus-within:shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[var(--nav-border)]">
                                     {attachment && (
                                         <div className="flex items-center gap-2 px-4 py-2 mx-2 mt-2 bg-institutional-100 dark:bg-institutional-800 rounded-xl w-fit shadow-sm border border-border">
                                             <Paperclip size={16} className="text-primary" />
