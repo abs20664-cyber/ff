@@ -24,9 +24,33 @@ const Schedule: React.FC = () => {
             setClasses(snap.docs.map(d => ({ id: d.id, ...d.data() } as ClassSession)));
         });
         
-        const unsubRecurring = onSnapshot(collection(db, 'recurring_sessions'), (snap) => {
-            setRecurringSessions(snap.docs.map(d => ({ id: d.id, ...d.data() } as RecurringSession)));
-        });
+        let unsubRecurring: () => void;
+        let unsubGroups: () => void;
+
+        const loadRecurring = (allowedTeacherIds: string[] | null) => {
+            unsubRecurring = onSnapshot(collection(db, 'recurring_sessions'), (snap) => {
+                let allRecurring = snap.docs.map(d => ({ id: d.id, ...d.data() } as RecurringSession));
+                
+                if (user?.role === 'student' && allowedTeacherIds) {
+                    allRecurring = allRecurring.filter(s => allowedTeacherIds.includes(s.teacherId));
+                } else if (user?.role === 'teacher') {
+                    allRecurring = allRecurring.filter(s => s.teacherId === user.id);
+                }
+                
+                setRecurringSessions(allRecurring);
+            });
+        };
+
+        if (user?.role === 'student') {
+            const qGroups = query(collection(db, 'groups'), where('participantIds', 'array-contains', user.id));
+            unsubGroups = onSnapshot(qGroups, (snap) => {
+                const groups = snap.docs.map(d => d.data() as any);
+                const teacherIds = Array.from(new Set(groups.map((g: any) => g.creatorId))) as string[];
+                loadRecurring(teacherIds);
+            });
+        } else {
+            loadRecurring(null);
+        }
         
         const qAttendance = user?.role === 'student' 
             ? query(collection(db, collections.attendance), where('studentId', '==', user.id)) 
@@ -36,7 +60,12 @@ const Schedule: React.FC = () => {
             setAttendance(snap.docs.map(d => ({ id: d.id, ...d.data() })));
         });
         
-        return () => { unsubClasses(); unsubAttendance(); unsubRecurring(); };
+        return () => { 
+            unsubClasses(); 
+            unsubAttendance(); 
+            if (unsubRecurring) unsubRecurring(); 
+            if (unsubGroups) unsubGroups(); 
+        };
     }, [user?.role, user?.id]);
 
     const checkIsLive = useCallback((date: string, start: string, end: string) => {

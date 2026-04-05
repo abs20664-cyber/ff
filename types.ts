@@ -99,6 +99,18 @@ export interface ClassSession {
   attachments?: Attachment[];
 }
 
+export interface RecurringSession {
+  id: string;
+  name: string;
+  dayOfWeek: string; // 'Monday', 'Tuesday', etc.
+  startTime: string;
+  endTime: string;
+  room: string;
+  type: 'Cours' | 'TD' | 'Exam';
+  teacherId: string;
+  teacherName: string;
+}
+
 export interface Material {
   id: string;
   studentId: string;

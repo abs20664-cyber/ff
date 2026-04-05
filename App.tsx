@@ -16,6 +16,7 @@ const Settings = lazy(() => import('./pages/Settings'));
 const Profile = lazy(() => import('./pages/Profile'));
 const Login = lazy(() => import('./pages/Login'));
 const EconomicDashboard = lazy(() => import('./pages/EconomicDashboard'));
+const Timetable = lazy(() => import('./pages/Timetable'));
 
 const PageLoader = () => (
   <div className="flex-1 flex items-center justify-center min-h-[400px]">
@@ -66,6 +67,7 @@ const AppContent: React.FC = () => {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/economic" element={<EconomicDashboard />} />
+                <Route path="/timetable" element={<Timetable />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </Suspense>
