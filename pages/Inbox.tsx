@@ -544,8 +544,9 @@ const Inbox: React.FC = () => {
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        const isNearBottom = scrollHeight - scrollTop - clientHeight < 150;
-        setIsScrollingUp(!isNearBottom);
+        setIsScrollingUp(scrollHeight - scrollTop - clientHeight > 200);
+        
+        const isNearBottom = scrollHeight - scrollTop - clientHeight <= 5;
 
         const nav = document.getElementById('global-bottom-nav');
         if (nav) {
@@ -559,7 +560,7 @@ const Inbox: React.FC = () => {
 
     const handleSidebarScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        const isNearBottom = scrollHeight - scrollTop - clientHeight < 50;
+        const isNearBottom = scrollHeight - scrollTop - clientHeight <= 5;
         const nav = document.getElementById('global-bottom-nav');
         if (nav) {
             if (isNearBottom) {
