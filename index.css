@@ -4,19 +4,22 @@
    DESIGN TOKENS — Light Mode
    ============================================================ */
 :root {
-  --bg-body: #f0f4f8;
-  --bg-surface: #ffffff;
-  --bg-elevated: #ffffff;
-  --text-primary: #0d1b2a;
-  --text-secondary: #4a5568;
-  --border-color: #e2e8f0;
-  --muted: #94a3b8;
+  /* Eye-soothing, muted slate light mode */
+  --bg-body: #E4E7EB; /* Deep slate background */
+  --bg-surface: #EEF0F3; /* Cards are slightly lighter, avoiding pure white */
+  --bg-elevated: #F5F7F9; /* Elevated panels like dropdowns */
+  
+  /* Text colors */
+  --text-primary: #202428; /* Softened charcoal black */
+  --text-secondary: #565D65; /* Mid-tone slate grey */
+  --border-color: #D3D8E0; /* Visible bounding box */
+  --muted: #9199A3;
 
-  /* Primary — Algeria Green, elevated */
-  --primary: #006633;
-  --primary-hover: #00552b;
-  --primary-light: rgba(0, 102, 51, 0.08);
-  --primary-ring: rgba(0, 102, 51, 0.25);
+  /* Primary — Algeria Green, slightly softer for light mode */
+  --primary: #007A3E;
+  --primary-hover: #006030;
+  --primary-light: rgba(0, 122, 62, 0.08);
+  --primary-ring: rgba(0, 122, 62, 0.2);
   --primary-foreground: #ffffff;
 
   /* Institutional Scale */
@@ -40,8 +43,8 @@
   --shadow-glow: 0 0 24px -4px rgba(0,102,51,0.25);
 
   /* Nav */
-  --nav-bg: rgba(255,255,255,0.92);
-  --nav-border: rgba(226,232,240,0.8);
+  --nav-bg: rgba(238, 240, 243, 0.92); /* Frosted slate */
+  --nav-border: rgba(211, 216, 224, 0.8);
 }
 
 /* ============================================================

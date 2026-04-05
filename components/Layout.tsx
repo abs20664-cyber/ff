@@ -339,7 +339,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                                     initial={{ opacity: 0, x: -10, scale: 0.98 }}
                                     animate={{ opacity: 1, x: 0, scale: 1 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="text-xl font-display font-bold tracking-tight text-text uppercase bg-clip-text"
+                                    className="text-xl font-display font-bold tracking-tight text-text uppercase"
                                 >
                                     {getPageTitle()}
                                 </motion.h1>
