@@ -145,7 +145,7 @@ const Login: React.FC = () => {
                     </div>
                 </motion.div>
 
-                <div className="glass p-8 sm:p-10 rounded-3xl shadow-strong w-full relative slide-up animation-delay-200">
+                <div className="glass p-6 sm:p-10 rounded-3xl shadow-strong w-full relative slide-up animation-delay-200">
                     {error && (
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.95 }}

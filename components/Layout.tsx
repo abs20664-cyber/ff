@@ -282,7 +282,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
             onClick={enableAudio} 
         >
             {/* TOAST STACK */}
-            <div className={`fixed z-[500] flex flex-col gap-4 p-6 transition-all duration-300 ${isMobile ? 'top-0 inset-x-0' : 'top-6 end-6 w-[400px]'}`}>
+            <div className={`fixed z-[500] flex flex-col gap-4 p-4 sm:p-6 transition-all duration-300 ${isMobile ? 'top-2 inset-x-0 mx-2' : 'top-6 end-6 w-[400px]'}`}>
                 {toasts.map((toast, idx) => (
                     <div 
                         key={toast.id} 
@@ -361,7 +361,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                     )}
                 </motion.header>
 
-                <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-12 relative scroll-smooth pb-36 pt-20">
+                <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-12 relative scroll-smooth pb-24 sm:pb-36 pt-6 sm:pt-20">
                     <div className="max-w-[1400px] mx-auto">
                         {children}
                     </div>

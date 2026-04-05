@@ -296,8 +296,8 @@ const AdminRegistry: React.FC = () => {
             <div className="space-y-6">
                 {/* Dashboard Stats */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-2 grid grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div className="stat-card col-span-2 lg:col-span-1">
+                    <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="stat-card col-span-1 sm:col-span-2 lg:col-span-1">
                             <div className="flex items-center justify-between mb-2">
                                 <h3 className="section-title mb-0">Total Users</h3>
                                 <div className="w-8 h-8 rounded-full bg-[var(--primary-light)] flex items-center justify-center text-primary shadow-sm">
