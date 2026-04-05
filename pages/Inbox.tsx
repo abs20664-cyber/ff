@@ -534,36 +534,6 @@ const Inbox: React.FC = () => {
         }
     }, [messages.length, remoteTyping, isScrollingUp]);
 
-    const observerRef = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-        const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-            const nav = document.getElementById('global-bottom-nav');
-            if (nav) {
-                const isAtBottom = entries.some(e => e.isIntersecting);
-                if (isAtBottom) {
-                    nav.style.transform = 'translateY(150%)';
-                } else {
-                    nav.style.transform = 'translateY(0)';
-                }
-            }
-        };
-
-        observerRef.current = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
-
-        // A tiny delay to ensure markers are mounted before observing
-        const timeout = setTimeout(() => {
-            const markers = document.querySelectorAll('.bottom-scroll-marker');
-            markers.forEach(m => observerRef.current?.observe(m));
-        }, 500);
-
-        return () => {
-            clearTimeout(timeout);
-            observerRef.current?.disconnect();
-            const nav = document.getElementById('global-bottom-nav');
-            if (nav) nav.style.transform = 'translateY(0)';
-        };
-    }, [activeTarget]);
 
     useEffect(() => {
         if (scrollRef.current && !isScrollingUp) {
@@ -719,7 +689,7 @@ const Inbox: React.FC = () => {
                             </div>
                         </div>
                     )}
-                    <div className="bottom-scroll-marker h-1 w-full shrink-0"></div>
+
                 </div>
             </div>
 

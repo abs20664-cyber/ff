@@ -413,16 +413,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                 </div>
             )}
 
-            {/* BOTTOM NAVIGATION */}
-            <div id="global-bottom-nav" className="fixed bottom-0 inset-x-0 z-50 pointer-events-none flex justify-center pb-4 sm:pb-8 transition-transform duration-300 ease-in-out translate-y-0">
-                <div 
-                    className="pointer-events-auto overflow-x-auto no-scrollbar max-w-[95vw] sm:max-w-full px-2 pb-2 scroll-smooth snap-x"
-                    onScroll={() => {
-                        if (isLangOpen) setIsLangOpen(false);
-                        if (isNotifOpen) setIsNotifOpen(false);
-                    }}
-                >
-                    <nav className="bg-[var(--nav-bg)] backdrop-blur-2xl border border-[var(--nav-border)] flex items-center p-2 rounded-full gap-1 sm:gap-2 shadow-[var(--shadow-strong-val)] mx-auto relative">
+            <div id="global-bottom-nav" className="fixed bottom-0 inset-x-0 z-[100] flex justify-center pb-4 sm:pb-8">
+                <div onClick={(e) => e.stopPropagation()} className="pointer-events-auto overflow-x-auto no-scrollbar max-w-[95vw] sm:max-w-full px-2 pb-2 scroll-smooth">
+                    <nav className="bg-[var(--nav-bg)] backdrop-blur-2xl border border-[var(--nav-border)] flex items-center w-max p-2 rounded-full gap-1 sm:gap-2 shadow-[var(--shadow-strong-val)] mx-auto relative pointer-events-auto">
                             {routes.map((route) => {
                                 const Icon = route.icon;
                                 const isActive = currentPath === route.path;
