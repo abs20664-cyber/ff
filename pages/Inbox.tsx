@@ -690,6 +690,7 @@ const Inbox: React.FC = () => {
                         </div>
                     )}
 
+                    <div className="h-32 shrink-0 w-full"></div>
                 </div>
             </div>
 
@@ -814,7 +815,7 @@ const Inbox: React.FC = () => {
                         </div>
 
                         {/* Input & Control Area */}
-                        <div className="p-4 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
+                        <div className="p-4 pb-28 sm:pb-32 lg:pb-8 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
                             {editingMessage && (
                                 <div className="mb-3 p-3 bg-primary/5 rounded-xl flex items-center justify-between border border-primary/10">
                                     <div className="flex items-center gap-3 min-w-0">
