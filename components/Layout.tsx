@@ -250,7 +250,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
         ? [
             { path: '/', label: t('nav.hub'), icon: LayoutDashboard },
             { path: '/schedule', label: t('nav.schedule'), icon: CalendarDays },
-            { path: '/timetable', label: 'Timetable', icon: CalendarCheck },
             { path: '/assignments', label: t('nav.homework'), icon: FolderOpen },
             { path: '/inbox', label: t('nav.inbox'), icon: MessageSquare },
             { path: `/profile/${user?.id}`, label: t('nav.myProfile'), icon: UserCircle },
@@ -258,7 +257,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
         : [
             { path: '/', label: t('nav.identity'), icon: QrCode },
             { path: '/schedule', label: t('nav.schedule'), icon: CalendarDays },
-            { path: '/timetable', label: 'Timetable', icon: CalendarCheck },
             { path: '/assignments', label: t('nav.homework'), icon: FolderOpen },
             { path: '/materials', label: t('nav.cabinet'), icon: Briefcase },
             { path: '/inbox', label: t('nav.inbox'), icon: MessageSquare },
