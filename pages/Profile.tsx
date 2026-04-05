@@ -34,6 +34,12 @@ const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState<Partial<User>>({});
   const [saving, setSaving] = useState(false);
+  
+  // Avatar Picker State
+  const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+  const DICEBEAR_STYLES = ['lorelei', 'adventurer', 'fun-emoji', 'bottts', 'micah', 'thumbs'];
+  const [avatarStyle, setAvatarStyle] = useState('lorelei');
+  const [avatarSeed, setAvatarSeed] = useState(id || 'default');
 
   const isOwnProfile = currentUser?.id === id;
   const isAdmin = currentUser?.role === 'admin';
@@ -146,8 +152,61 @@ const Profile: React.FC = () => {
     );
   }
 
+  const defaultAvatar = `https://api.dicebear.com/9.x/lorelei/svg?seed=${profileUser.id}`;
+  const displayAvatar = (isEditing && editData.avatar) ? editData.avatar : (profileUser.avatar || defaultAvatar);
+
   return (
     <div className="flex-1 p-4 md:p-8 lg:p-12 max-w-6xl mx-auto w-full animate-in fade-in slide-in-from-bottom-8 duration-700" dir={isRTL ? 'rtl' : 'ltr'}>
+      {/* Avatar Chooser Modal */}
+      {showAvatarPicker && (
+        <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-4">
+          <div className="bg-surface dark:bg-background rounded-[2rem] shadow-2xl max-w-3xl w-full p-6 md:p-8 relative border border-border">
+            <button onClick={() => setShowAvatarPicker(false)} className="absolute top-6 right-6 p-2 text-text-secondary hover:text-danger hover:bg-danger/10 rounded-xl transition-all">
+              <X size={24} />
+            </button>
+            <h3 className="text-2xl font-black uppercase text-text mb-6">Choose Your Avatar</h3>
+            
+            <div className="flex gap-4 overflow-x-auto pb-4 mb-6 custom-scrollbar">
+              {DICEBEAR_STYLES.map(style => (
+                <button 
+                  key={style}
+                  onClick={() => { setAvatarStyle(style); setAvatarSeed(Math.random().toString(36).substring(7)); }}
+                  className={`px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all shrink-0 ${avatarStyle === style ? 'bg-primary text-white shadow-lg' : 'bg-muted/30 text-text-secondary hover:bg-muted/50'}`}
+                >
+                  {style}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-8 h-64 overflow-y-auto pr-2 custom-scrollbar">
+              {Array.from({ length: 18 }).map((_, i) => {
+                const url = `https://api.dicebear.com/9.x/${avatarStyle}/svg?seed=${avatarSeed}_${i}`;
+                return (
+                  <button 
+                    key={i}
+                    onClick={() => {
+                        setEditData({ ...editData, avatar: url });
+                        setShowAvatarPicker(false);
+                    }}
+                    className="aspect-square rounded-2xl bg-muted/20 border-2 border-transparent hover:border-primary hover:bg-primary/5 transition-all p-2 flex items-center justify-center"
+                  >
+                    <img src={url} alt={`Avatar ${i}`} className="w-full h-full object-contain" />
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="flex justify-center">
+              <button 
+                onClick={() => setAvatarSeed(Math.random().toString(36).substring(7))}
+                className="px-8 py-4 bg-accent text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-accent/90 transition-all shadow-lg"
+              >
+                Shuffle Generation
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <div className="flex items-center gap-6">
@@ -189,20 +248,11 @@ const Profile: React.FC = () => {
             <div className="relative pt-16 pb-8 px-6 flex flex-col items-center">
               <div className="relative inline-block mb-6 group-hover:scale-105 transition-transform duration-500">
                 <div className="w-36 h-36 rounded-[2.5rem] bg-surface dark:bg-background flex items-center justify-center shadow-2xl overflow-hidden border-4 border-surface dark:border-background ring-4 ring-primary/20 z-10 relative">
-                  {profileUser.avatar ? (
-                    <img src={profileUser.avatar} alt={profileUser.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <span className="text-5xl font-black text-primary/40">
-                      {profileUser.name.split(' ').map(n => n[0]).join('').toUpperCase()}
-                    </span>
-                  )}
+                  <img src={displayAvatar} alt={profileUser.name} className="w-full h-full object-cover" />
                 </div>
                 {isEditing && (
                   <button 
-                    onClick={() => {
-                      const url = prompt('Enter image URL:', editData.avatar || '');
-                      if (url !== null) setEditData({ ...editData, avatar: url });
-                    }}
+                    onClick={() => setShowAvatarPicker(true)}
                     className="absolute -bottom-4 right-2 w-12 h-12 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-20 hover:rotate-6"
                   >
                     <Camera size={20} />
