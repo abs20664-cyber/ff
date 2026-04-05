@@ -13,7 +13,7 @@ export interface User {
   age?: number;
   bio?: string;
   fieldOfStudy?: string;
-  subjectsTaught?:string;
+  subjectsTaughtIds?: string[];
   createdAt?: any;
   accountStatus?: 'active' | 'disabled' | 'suspended' | 'pending';
   paymentStatus?: 'paid' | 'unpaid' | 'pending';
@@ -109,6 +109,12 @@ export interface RecurringSession {
   type: 'Cours' | 'TD' | 'Exam';
   teacherId: string;
   teacherName: string;
+}
+
+export interface Subject {
+  id: string;
+  name: string;
+  description?: string;
 }
 
 export interface Material {
