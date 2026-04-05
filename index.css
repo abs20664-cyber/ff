@@ -145,7 +145,11 @@
   }
 
   body {
-    @apply bg-body text-text font-sans antialiased;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-height: 100dvh;
@@ -153,7 +157,8 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-    @apply tracking-tight font-bold;
+    letter-spacing: -0.025em;
+    font-weight: 700;
   }
 
   code, pre { @apply font-mono; }
@@ -253,10 +258,13 @@
   .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm;
-    @apply text-text-secondary border border-border;
-    @apply hover:bg-elevated hover:text-text hover:border-primary/30;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm text-text-secondary border border-border;
     transition: all 0.2s ease;
+  }
+  .btn-ghost:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border-color: rgba(0, 102, 51, 0.3);
   }
 
   .btn-danger {
@@ -270,13 +278,18 @@
 
   /* ── Inputs ── */
   .input-field {
-    @apply w-full bg-elevated text-text rounded-xl border border-border px-4 py-3.5 text-sm;
-    @apply placeholder:text-muted outline-none;
-    @apply focus:border-primary focus:ring-4;
-    --tw-ring-color: var(--primary-ring);
-    --tw-ring-shadow: 0 0 0 3px var(--primary-ring);
+    @apply w-full bg-elevated text-text rounded-xl border border-border px-4 py-3.5 text-sm outline-none;
     transition: all 0.2s ease;
     box-shadow: var(--shadow-xs);
+  }
+  .input-field::placeholder { 
+    color: var(--muted);
+  }
+  .input-field:focus {
+    border-color: var(--primary);
+    --tw-ring-color: var(--primary-ring);
+    --tw-ring-shadow: 0 0 0 3px var(--primary-ring);
+    box-shadow: var(--tw-ring-shadow), var(--shadow-xs);
   }
   .dark .input-field {
     background: var(--bg-elevated);
@@ -297,11 +310,24 @@
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide;
   }
-  .badge-primary { @apply badge bg-primary-light text-primary; }
-  .badge-success { background: var(--color-success-light); @apply badge text-success; }
-  .badge-warning { background: var(--color-warning-light); @apply badge text-warning; }
-  .badge-danger  { background: var(--color-danger-light);  @apply badge text-danger; }
-  .badge-muted   { @apply badge bg-elevated text-text-secondary border border-border; }
+  .badge-primary { 
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[var(--primary-light)] text-primary; 
+  }
+  .badge-success { 
+    background: var(--color-success-light); 
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-success; 
+  }
+  .badge-warning { 
+    background: var(--color-warning-light); 
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-warning; 
+  }
+  .badge-danger  { 
+    background: var(--color-danger-light);  
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-danger; 
+  }
+  .badge-muted   { 
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-elevated text-text-secondary border border-border; 
+  }
 
   /* ── Section titles ── */
   .section-title {
@@ -322,17 +348,19 @@
 
   /* ── Nav item ── */
   .nav-item {
-    @apply relative flex flex-col items-center justify-center gap-1 rounded-2xl;
-    @apply transition-all duration-200 cursor-pointer select-none;
+    @apply relative flex flex-col items-center justify-center gap-1 rounded-2xl transition-all duration-200 cursor-pointer select-none;
     padding: 8px 12px;
     min-width: 52px;
   }
   .nav-item.active {
-    @apply text-primary;
+    color: var(--primary);
     background: var(--primary-light);
   }
   .nav-item:not(.active) {
-    @apply text-muted hover:text-text;
+    color: var(--muted);
+  }
+  .nav-item:not(.active):hover {
+    color: var(--text-primary);
   }
 
   /* ── Animations ── */
