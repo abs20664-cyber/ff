@@ -111,19 +111,19 @@ const Schedule: React.FC = () => {
         const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
         return (
-            <div className="bg-institutional-50 dark:bg-institutional-900 rounded-2xl border border-institutional-200 dark:border-institutional-800 p-5 shadow-sm w-full max-w-sm mx-auto">
+            <div className="card-static p-6 w-full max-w-sm mx-auto">
                 <div className="flex justify-between items-center mb-6">
-                    <button onClick={() => navigateMonth(-1)} className="p-2 hover:bg-institutional-100 dark:hover:bg-institutional-800 rounded-lg transition-colors">
-                        <ChevronLeft size={18} className="text-institutional-600 dark:text-institutional-400" />
+                    <button onClick={() => navigateMonth(-1)} className="p-2 hover:bg-elevated rounded-lg transition-colors">
+                        <ChevronLeft size={18} className="text-muted hover:text-text" />
                     </button>
-                    <h3 className="font-semibold text-institutional-900 dark:text-institutional-50 text-base">
+                    <h3 className="font-bold text-text text-base">
                         {currentDate.toLocaleDateString(language, { month: 'long', year: 'numeric' })}
                     </h3>
-                    <button onClick={() => navigateMonth(1)} className="p-2 hover:bg-institutional-100 dark:hover:bg-institutional-800 rounded-lg transition-colors">
-                        <ChevronRight size={18} className="text-institutional-600 dark:text-institutional-400" />
+                    <button onClick={() => navigateMonth(1)} className="p-2 hover:bg-elevated rounded-lg transition-colors">
+                        <ChevronRight size={18} className="text-muted hover:text-text" />
                     </button>
                 </div>
-                <div className="grid grid-cols-7 gap-1 text-center text-xs font-medium text-institutional-600 mb-3">
+                <div className="grid grid-cols-7 gap-1 text-center text-xs font-bold uppercase tracking-wider text-muted mb-3">
                     {weekDays.map(d => <div key={d}>{d}</div>)}
                 </div>
                 <div className="grid grid-cols-7 gap-1">
@@ -143,24 +143,24 @@ const Schedule: React.FC = () => {
                             <button 
                                 key={i} 
                                 onClick={() => setCurrentDate(d)}
-                                className={`h-10 w-10 mx-auto rounded-full flex flex-col items-center justify-center text-sm relative transition-all
-                                    ${isSelected ? 'bg-primary text-institutional-50 font-semibold shadow-md' : 
-                                      isToday ? 'bg-primary/10 text-primary font-semibold' : 
-                                      'text-institutional-700 dark:text-institutional-300 hover:bg-institutional-100 dark:hover:bg-institutional-800'}
+                                className={`h-10 w-10 mx-auto rounded-full flex flex-col items-center justify-center text-sm relative transition-all duration-300
+                                    ${isSelected ? 'bg-primary text-white font-bold shadow-[0_4px_10px_rgba(0,102,51,0.3)] dark:shadow-[0_4px_10px_rgba(16,185,129,0.3)] transform scale-105' : 
+                                      isToday ? 'bg-[var(--primary-light)] text-primary font-bold' : 
+                                      'text-text-secondary hover:bg-elevated hover:text-text'}
                                 `}
                             >
                                 <span>{d.getDate()}</span>
                                 {hasClass && (
-                                    <div className={`absolute bottom-1.5 w-1 h-1 rounded-full ${isSelected ? 'bg-institutional-50' : 'bg-primary'}`} />
+                                    <div className={`absolute bottom-1.5 w-1 h-1 rounded-full ${isSelected ? 'bg-white' : 'bg-primary'}`} />
                                 )}
                             </button>
                         );
                     })}
                 </div>
-                <div className="mt-6 pt-4 border-t border-institutional-100 dark:border-institutional-800 flex justify-center">
+                <div className="mt-6 pt-4 border-t border-border flex justify-center">
                     <button 
                         onClick={() => setCurrentDate(new Date())}
-                        className="text-xs font-medium text-primary hover:text-primary-hover transition-colors"
+                        className="text-xs font-bold uppercase tracking-wider text-primary hover:text-primary-hover transition-colors"
                     >
                         Go to Today
                     </button>
@@ -180,11 +180,11 @@ const Schedule: React.FC = () => {
                 {/* Schedule List Section */}
                 <div className="w-full max-w-lg flex-1">
                     <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-lg font-semibold text-institutional-900 dark:text-institutional-50 flex items-center gap-2">
-                            <CalendarDays size={18} className="text-primary" />
+                        <h3 className="text-xl font-bold text-text flex items-center gap-2">
+                            <CalendarDays size={20} className="text-primary" />
                             {currentDate.toLocaleDateString(language, { weekday: 'long', month: 'long', day: 'numeric' })}
                         </h3>
-                        <span className="text-xs font-medium px-2.5 py-1 bg-institutional-100 dark:bg-institutional-800 text-institutional-600 dark:text-institutional-300 rounded-full">
+                        <span className="badge-muted">
                             {todaysClasses.length} {todaysClasses.length === 1 ? 'Session' : 'Sessions'}
                         </span>
                     </div>
@@ -209,12 +209,12 @@ const Schedule: React.FC = () => {
                                         <div 
                                             key={s.id} 
                                             onClick={() => user?.role !== 'student' && setExpandedSession(isExpanded ? null : s.id)}
-                                            className={`bg-institutional-50 dark:bg-institutional-900 p-5 rounded-2xl border transition-all relative overflow-hidden ${isLive ? 'border-primary shadow-md ring-1 ring-primary/20' : 'border-institutional-200 dark:border-institutional-800 shadow-sm hover:shadow-md'} ${user?.role !== 'student' ? 'cursor-pointer' : ''}`}
+                                            className={`${isLive ? 'stat-card border-none live-now-glow' : 'card p-5'} ${user?.role !== 'student' ? 'cursor-pointer' : ''} group`}
                                         >
                                             {isLive && (
                                                 <div className="absolute top-0 right-0 p-3">
-                                                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-bold uppercase tracking-wide animate-pulse">
-                                                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                                                    <div className="badge-success animate-pulse">
+                                                        <div className="w-1.5 h-1.5 bg-success rounded-full" />
                                                         Live
                                                     </div>
                                                 </div>
@@ -222,54 +222,54 @@ const Schedule: React.FC = () => {
                                             
                                             <div className="flex justify-between items-start mb-4">
                                                 <div className="flex-1 pr-4">
-                                                    <span className="inline-block px-2 py-0.5 bg-institutional-100 dark:bg-institutional-800 rounded text-[10px] font-semibold text-institutional-600 dark:text-institutional-400 uppercase tracking-wider mb-2">
+                                                    <span className="badge-muted mb-2">
                                                         {s.type}
                                                     </span>
-                                                    <h4 className="font-bold text-base text-institutional-900 dark:text-institutional-50 leading-tight">{s.name}</h4>
+                                                    <h4 className="font-bold text-lg text-text leading-tight">{s.name}</h4>
                                                 </div>
                                                 
                                                 <div className="shrink-0 mt-1">
                                                     {typeof status === 'string' ? (
-                                                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${status === 'present' ? 'bg-success/10 text-success' : status === 'absent' ? 'bg-danger/10 text-danger' : 'bg-institutional-100 dark:bg-institutional-800 text-institutional-600'}`}>
+                                                        <div className={`${status === 'present' ? 'badge-success' : status === 'absent' ? 'badge-danger' : 'badge-muted'}`}>
                                                             {status === 'present' ? <CheckCircle2 size={12} /> : status === 'absent' ? <XCircle size={12} /> : <Clock size={12} />}
                                                             {t(`schedule.${status}`)}
                                                         </div>
                                                     ) : (
-                                                        <div className="bg-primary/10 text-primary px-3 py-1.5 rounded-xl flex flex-col items-center group-hover:bg-primary group-hover:text-institutional-50 transition-colors">
-                                                            <span className="text-[9px] font-bold uppercase tracking-wider">{(user?.role === 'economic' || user?.role === 'admin') ? 'Attendees' : t('schedule.present')}</span>
-                                                            <span className="text-sm font-bold">{status}</span>
+                                                        <div className="badge-primary flex-col items-center py-2 px-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                                            <span className="text-[9px]">{(user?.role === 'economic' || user?.role === 'admin') ? 'Attendees' : t('schedule.present')}</span>
+                                                            <span className="text-sm font-bold leading-none">{status}</span>
                                                         </div>
                                                     )}
                                                 </div>
                                             </div>
 
-                                            <div className="flex items-center gap-6 pt-4 border-t border-institutional-100 dark:border-institutional-800">
-                                                <div className="flex items-center gap-2 text-institutional-600 dark:text-institutional-400">
+                                            <div className="flex items-center gap-6 pt-4 border-t border-border">
+                                                <div className="flex items-center gap-2 text-text-secondary">
                                                     <Clock size={14} className="text-primary" />
-                                                    <span className="text-xs font-medium">{s.time} — {s.endTime}</span>
+                                                    <span className="text-xs font-semibold">{s.time} — {s.endTime}</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 text-institutional-600 dark:text-institutional-400">
+                                                <div className="flex items-center gap-2 text-text-secondary">
                                                     <MapPin size={14} className="text-primary" />
-                                                    <span className="text-xs font-medium truncate max-w-[120px]">{s.room}</span>
+                                                    <span className="text-xs font-semibold truncate max-w-[120px]">{s.room}</span>
                                                 </div>
                                             </div>
 
                                             {isExpanded && user?.role !== 'student' && (
-                                                <div className="mt-6 pt-6 border-t border-institutional-100 dark:border-institutional-800 animate-in slide-in-from-top-2 duration-200" onClick={(e) => e.stopPropagation()}>
+                                                <div className="mt-6 pt-6 border-t border-border slide-up" onClick={(e) => e.stopPropagation()}>
                                                     <div className="flex items-center justify-between mb-4">
-                                                        <h5 className="text-[10px] font-black uppercase text-institutional-600 tracking-widest">Present Students ({attendees.length})</h5>
+                                                        <h5 className="section-title mb-0">Present Students ({attendees.length})</h5>
                                                     </div>
                                                     
                                                     {attendees.length > 0 ? (
                                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[300px] overflow-y-auto pr-1 scroll-hide">
                                                             {attendees.map((a: any) => (
-                                                                <div key={a.id} className="flex items-center gap-3 p-3 bg-institutional-50 dark:bg-institutional-800/50 rounded-xl border border-institutional-100 dark:border-institutional-800 hover:bg-institutional-50 dark:hover:bg-institutional-800 transition-colors shadow-sm">
-                                                                    <div className="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center text-success shrink-0 font-bold text-xs">
+                                                                <div key={a.id} className="flex items-center gap-3 p-3 bg-body rounded-xl border border-border hover:border-primary/20 transition-colors shadow-xs">
+                                                                    <div className="w-8 h-8 rounded-full bg-[var(--color-success-light)] flex items-center justify-center text-success shrink-0 font-bold text-xs">
                                                                         {a.studentName.charAt(0)}
                                                                     </div>
                                                                     <div className="min-w-0 flex-1">
-                                                                        <p className="text-xs font-bold text-institutional-900 dark:text-institutional-50 truncate">{a.studentName}</p>
-                                                                        <p className="text-[10px] font-medium text-institutional-600 uppercase tracking-wider flex items-center gap-1">
+                                                                        <p className="text-xs font-bold text-text truncate">{a.studentName}</p>
+                                                                        <p className="text-[10px] font-medium text-muted uppercase tracking-wider flex items-center gap-1">
                                                                             <CheckCircle2 size={10} className="text-success" />
                                                                             {a.timestamp?.seconds ? new Date(a.timestamp.seconds * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : 'Verified'}
                                                                         </p>
@@ -278,8 +278,8 @@ const Schedule: React.FC = () => {
                                                             ))}
                                                         </div>
                                                     ) : (
-                                                        <div className="text-center py-8 bg-institutional-50 dark:bg-institutional-800/30 rounded-xl border border-dashed border-institutional-200 dark:border-institutional-800">
-                                                            <p className="text-xs font-medium text-institutional-600 italic">No students scanned yet.</p>
+                                                        <div className="text-center py-8 bg-body rounded-xl border border-dashed border-border">
+                                                            <p className="text-xs font-semibold text-muted italic">No students scanned yet.</p>
                                                         </div>
                                                     )}
                                                 </div>
@@ -287,12 +287,12 @@ const Schedule: React.FC = () => {
                                         </div>
                                     );
                                 }) : (
-                                    <div className="py-16 text-center bg-institutional-50 dark:bg-institutional-900 rounded-2xl border border-dashed border-institutional-200 dark:border-institutional-800 flex flex-col items-center justify-center px-6">
-                                        <div className="w-12 h-12 bg-institutional-50 dark:bg-institutional-800 rounded-full flex items-center justify-center text-institutional-600 mb-4">
-                                            <CalendarIcon size={24} />
+                                    <div className="py-16 text-center card flex flex-col items-center justify-center px-6">
+                                        <div className="w-16 h-16 bg-elevated rounded-full flex items-center justify-center text-muted mb-4 shadow-sm border border-border">
+                                            <CalendarIcon size={28} />
                                         </div>
-                                        <h4 className="font-semibold text-sm text-institutional-900 dark:text-institutional-50 mb-1">No sessions scheduled</h4>
-                                        <p className="text-xs text-institutional-600">You have no classes on this date.</p>
+                                        <h4 className="font-bold text-base text-text mb-1">No sessions scheduled</h4>
+                                        <p className="text-sm font-medium text-text-secondary">You have no classes on this date.</p>
                                     </div>
                                 )}
                             </motion.div>
