@@ -614,7 +614,7 @@ const Inbox: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto scroll-hide">
+                <div className="flex-1 overflow-y-auto scroll-hide pb-32">
                     {/* Groups Section */}
                     {filteredSidebar.groups.length > 0 && (
                         <div className="mb-4">
@@ -800,7 +800,7 @@ const Inbox: React.FC = () => {
                         </div>
 
                         {/* Input & Control Area */}
-                        <div className="p-4 border-t border-institutional-100 dark:border-institutional-900">
+                        <div className="p-4 pb-32 border-t border-institutional-100 dark:border-institutional-900 bg-surface dark:bg-institutional-950">
                             {editingMessage && (
                                 <div className="mb-3 p-3 bg-primary/5 rounded-xl flex items-center justify-between border border-primary/10">
                                     <div className="flex items-center gap-3 min-w-0">
