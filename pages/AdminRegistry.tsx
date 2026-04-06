@@ -268,15 +268,10 @@ const AdminRegistry: React.FC = () => {
     }, [users]);
 
     const pieData = useMemo(() => [
-<<<<<<< HEAD
         { name: t('roles.student'), value: stats.students, color: '#10b981' }, 
         { name: t('roles.teacher'), value: stats.teachers, color: '#007A3E' }, 
         { name: t('roles.admin') + ' & ' + t('roles.economic'), value: stats.staff, color: '#f43f5e' }, 
-=======
-        { name: t('roles.student'), value: stats.students, color: '#10b981' }, // success
-        { name: t('roles.teacher'), value: stats.teachers, color: '#3b82f6' }, // primary
-        { name: t('roles.admin') + ' / ' + t('roles.economic'), value: stats.staff, color: '#ef4444' }, // danger
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
     ].filter(d => d.value > 0), [stats, t]);
 
     const itemData = { users: filteredUsers, isMobile, t, navigate, setEditingUser, setIsModalOpen, handleDeleteClick, processingId };
@@ -285,19 +280,12 @@ const AdminRegistry: React.FC = () => {
         if (loading) {
             return isMobile ? (
                 <div className="space-y-4">
-<<<<<<< HEAD
-                    {[...Array(5)].map((_, i) => <div key={i} className="shimmer h-[160px] w-full rounded-2xl" />)}
+                    {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-[150px] w-full rounded-2xl" />)}
                 </div>
             ) : (
                 <div className="card overflow-hidden">
                      <div className="grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_140px] p-6 border-b border-border bg-elevated/50 font-bold text-[10px] uppercase tracking-widest text-muted text-start">
-=======
-                    {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-[150px] w-full rounded-2xl" />)}
-                </div>
-            ) : (
-                <div className="card-edu bg-surface dark:bg-institutional-950 border border-institutional-300 dark:border-institutional-800 rounded-[1.5rem] overflow-hidden shadow-2xl">
-                     <div className={`grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_100px] p-6 border-b border-institutional-200 dark:border-institutional-800 bg-institutional-100 dark:bg-institutional-950 font-black text-[10px] uppercase tracking-widest text-institutional-600 text-start`}>
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                         <div>{t('admin.legalName')}</div>
                         <div>{t('admin.email')}</div>
                         <div>{t('admin.permissions')}</div>
@@ -481,7 +469,6 @@ const AdminRegistry: React.FC = () => {
     };
 
     return (
-<<<<<<< HEAD
         <div className="fade-in max-w-7xl mx-auto pb-24">
             <div className={`mb-8 flex ${isMobile ? 'flex-col gap-4' : 'justify-between items-center'}`}>
                 <div className="text-start">
@@ -491,17 +478,7 @@ const AdminRegistry: React.FC = () => {
                 <button 
                     onClick={() => { setEditingUser(null); setIsModalOpen(true); }}
                     className={`btn-primary ${isMobile ? 'w-full' : ''}`}
-=======
-        <div className="fade-in max-w-7xl mx-auto">
-            <div className={`mb-8 flex ${isMobile ? 'flex-col gap-4' : 'justify-between items-center'}`}>
-                <div className="text-start">
-                    <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-institutional-900 dark:text-institutional-50">{t('nav.registry')} Dashboard</h2>
-                    <p className="text-[10px] font-bold text-danger uppercase tracking-widest mt-1">{t('admin.systemManagement')}</p>
-                </div>
-                <button 
-                    onClick={() => { setEditingUser(null); setIsModalOpen(true); }}
-                    className={`bg-institutional-900 dark:bg-institutional-50 text-institutional-50 dark:text-institutional-900 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl flex items-center justify-center gap-2 ${isMobile ? 'w-full py-4' : 'px-6 py-3 hover:scale-105 transition-transform'}`}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                 >
                     <Plus size={16} /> {t('admin.addUser')}
                 </button>
@@ -510,7 +487,6 @@ const AdminRegistry: React.FC = () => {
             {renderContent()}
 
             {isModalOpen && (
-<<<<<<< HEAD
                 <div className={`fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center ${isMobile ? 'p-0 items-end' : 'p-4'} fade-in`}>
                     <div className={`bg-surface border border-border shadow-2xl relative max-h-[90vh] overflow-y-auto ${isMobile ? 'w-full rounded-t-[2rem] p-6 pb-10 slide-up' : 'max-w-xl w-full p-8 rounded-[2rem] slide-up'}`}>
                         <button onClick={() => setIsModalOpen(false)} className={`absolute top-6 ${isRTL ? 'left-6' : 'right-6'} w-8 h-8 rounded-full bg-elevated border border-border flex items-center justify-center text-muted hover:text-text transition-colors`}><X size={18} /></button>
@@ -527,28 +503,12 @@ const AdminRegistry: React.FC = () => {
                                 <button 
                                     onClick={() => { setTempPassword(null); setIsModalOpen(false); }}
                                     className="btn-primary w-full py-3.5 mt-6"
-=======
-                <div className={`fixed inset-0 z-[100] bg-black/70 backdrop-blur-md flex items-center justify-center ${isMobile ? 'p-0 items-end' : 'p-4'}`}>
-                    <div className={`bg-surface dark:bg-institutional-900 shadow-2xl relative border border-institutional-200 dark:border-institutional-800 max-h-[90vh] overflow-y-auto ${isMobile ? 'w-full rounded-t-[2.5rem] p-6 pb-10' : 'max-w-lg w-full p-10 rounded-[2rem] card-edu'}`}>
-                        <button onClick={() => setIsModalOpen(false)} className={`absolute top-6 ${isRTL ? 'left-6' : 'right-6'} text-institutional-600`}><X size={24} /></button>
-                        <h3 className="text-xl font-black mb-8 uppercase tracking-tight text-institutional-900 dark:text-institutional-50">
-                            {editingUser ? t('admin.updateProfile') : t('admin.newAccount')}
-                        </h3>
-                        {tempPassword ? (
-                            <div className="bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-800 p-6 rounded-2xl mb-8 text-center animate-in zoom-in-95 duration-300">
-                                <p className="text-[10px] font-black uppercase text-amber-600 dark:text-amber-400 tracking-widest mb-2">{t('economic.tempPassword')}</p>
-                                <p className="text-2xl font-black text-amber-700 dark:text-amber-300 font-mono tracking-wider">{tempPassword}</p>
-                                <p className="text-[9px] font-bold text-amber-500 mt-4 uppercase">Copy this password now. It will not be shown again.</p>
-                                <button 
-                                    onClick={() => { setTempPassword(null); setIsModalOpen(false); }}
-                                    className="mt-6 w-full bg-amber-600 text-institutional-50 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-amber-700 transition-colors"
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                                 >
                                     {t('common.confirm')}
                                 </button>
                             </div>
                         ) : (
-<<<<<<< HEAD
                             <form onSubmit={handleSave} className="space-y-5 text-start">
                                 <div className="space-y-1.5">
                                     <label className="section-title mb-0">{t('admin.legalName')}</label>
@@ -608,58 +568,7 @@ const AdminRegistry: React.FC = () => {
                                     {t('admin.confirmChanges')}
                                 </button>
                             </form>
-=======
-                            <form onSubmit={handleSave} className="space-y-4 text-start">
-                            <div className="space-y-1">
-                                <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.legalName')}</label>
-                                <input name="name" defaultValue={editingUser?.name} placeholder="..." className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none" required />
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.email')}</label>
-                                    <input name="email" type="email" defaultValue={editingUser?.email} placeholder="name@edu.alg" className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none" required />
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.passcode')}</label>
-                                    <input name="password" type="password" placeholder={editingUser ? "---" : "***"} className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none" required={!editingUser} />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.permissions')}</label>
-                                    <select name="role" defaultValue={editingUser?.role || 'student'} className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none">
-                                        <option value="student">{t('roles.student')}</option>
-                                        <option value="teacher">{t('roles.teacher')}</option>
-                                        <option value="admin">{t('roles.admin')}</option>
-                                        <option value="economic">{t('roles.economic')}</option>
-                                    </select>
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.subjects')}</label>
-                                    <div className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none max-h-40 overflow-y-auto">
-                                        {subjects.map(s => (
-                                            <label key={s.id} className="flex items-center gap-2">
-                                                <input type="checkbox" name="subjects" value={s.id} checked={editData.subjectsTaughtIds?.includes(s.id) || false} onChange={(e) => {
-                                                    const newSubjects = e.target.checked 
-                                                        ? [...(editData.subjectsTaughtIds || []), s.id]
-                                                        : (editData.subjectsTaughtIds || []).filter(id => id !== s.id);
-                                                    setEditData({ ...editData, subjectsTaughtIds: newSubjects });
-                                                }} />
-                                                {s.name}
-                                            </label>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                            {editingUser && (
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-black uppercase text-institutional-600">{t('admin.systemId')}</label>
-                                    <input name="id" defaultValue={editingUser?.id} placeholder="ID_000" className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold outline-none opacity-50" readOnly required />
-                                </div>
-                            )}
-                            <button type="submit" className="w-full bg-institutional-900 dark:bg-institutional-50 text-institutional-50 dark:text-institutional-900 p-4 rounded-xl font-black uppercase tracking-widest shadow-xl mt-4">{t('admin.confirmChanges')}</button>
-                        </form>
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                         )}
                     </div>
                 </div>
