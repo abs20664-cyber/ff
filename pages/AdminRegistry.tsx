@@ -19,16 +19,11 @@ const getRoleIcon = (role: UserRole) => {
         case 'admin': return <ShieldAlert size={14} className="text-danger" />;
         case 'teacher': return <Shield size={14} className="text-primary" />;
         case 'student': return <GraduationCap size={14} className="text-success" />;
-<<<<<<< HEAD
         case 'economic': return <DollarSign size={14} className="text-warning" />;
-=======
-        case 'economic': return <DollarSign size={14} className="text-amber-500" />;
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
         default: return <AlertTriangle size={14} />;
     }
 };
 
-<<<<<<< HEAD
 const getRoleBadgeClass = (role: UserRole) => {
     switch(role) {
         case 'admin': return 'badge-danger';
@@ -39,8 +34,7 @@ const getRoleBadgeClass = (role: UserRole) => {
     }
 };
 
-=======
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
 const UserRow = memo(({ index, style, data }: { index: number, style: React.CSSProperties, data: any }) => {
     const { users, isMobile, t, navigate, setEditingUser, setIsModalOpen, handleDeleteClick, processingId } = data;
     const u = users[index];
@@ -48,7 +42,6 @@ const UserRow = memo(({ index, style, data }: { index: number, style: React.CSSP
     if (isMobile) {
         return (
             <div style={style} className="px-1 py-2">
-<<<<<<< HEAD
                 <div className="card p-5 text-start hover:border-primary/30 transition-all">
                     <div className="flex items-center gap-4 mb-4">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white shadow-sm shrink-0 ${u.role === 'admin' ? 'bg-danger' : (u.role === 'teacher' ? 'bg-primary' : 'bg-emerald-500')}`}>
@@ -67,26 +60,6 @@ const UserRow = memo(({ index, style, data }: { index: number, style: React.CSSP
                         <button onClick={() => { setEditingUser(u); setIsModalOpen(true); }} className="btn-ghost flex-col gap-1 py-2 h-auto text-[10px]"><Settings size={14} />{t('admin.manage')}</button>
                         <button onClick={() => navigate(`/profile/${u.id}`)} className="btn-ghost flex-col gap-1 py-2 h-auto text-[10px] text-primary"><UserIcon size={14} />{t('admin.profile')}</button>
                         <button onClick={() => handleDeleteClick(u.id)} className="btn-ghost flex-col gap-1 py-2 h-auto text-[10px] text-danger border-transparent bg-danger/10 hover:bg-danger hover:text-white">
-=======
-                <div className="p-5 academic-card rounded-2xl text-start">
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-institutional-50 shadow-sm ${u.role === 'admin' ? 'bg-danger' : 'bg-primary'}`}>
-                            {u.name.charAt(0)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="font-black text-sm text-institutional-900 dark:text-institutional-50 truncate">{u.name}</p>
-                            <p className="text-[10px] font-bold text-institutional-600 truncate">{u.email}</p>
-                        </div>
-                        <div className="flex items-center gap-1 bg-institutional-100 dark:bg-institutional-800 p-1 px-2 rounded-lg shrink-0">
-                            {getRoleIcon(u.role)}
-                            <span className="text-[9px] font-black uppercase text-institutional-600 dark:text-institutional-400">{u.role}</span>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-3 gap-3 pt-4 border-t border-institutional-200 dark:border-institutional-800">
-                        <button onClick={() => { setEditingUser(u); setIsModalOpen(true); }} className="flex items-center justify-center gap-2 py-3 rounded-xl bg-institutional-100 dark:bg-institutional-800 text-institutional-600 font-black text-[10px] uppercase"><Settings size={14} /> {t('admin.manage')}</button>
-                        <button onClick={() => navigate(`/profile/${u.id}`)} className="flex items-center justify-center gap-2 py-3 rounded-xl bg-primary/10 text-primary font-black text-[10px] uppercase"><UserIcon size={14} /> {t('admin.profile')}</button>
-                        <button onClick={() => handleDeleteClick(u.id)} className="flex items-center justify-center gap-2 py-3 rounded-xl bg-danger/10 text-danger font-black text-[10px] uppercase">
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             {processingId === u.id ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />} {t('common.delete')}
                         </button>
                     </div>
@@ -96,7 +69,6 @@ const UserRow = memo(({ index, style, data }: { index: number, style: React.CSSP
     }
 
     return (
-<<<<<<< HEAD
         <div style={style} className="grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_140px] px-6 border-b border-border items-center hover:bg-elevated transition-colors text-start group">
             <div className="flex items-center gap-3">
                 <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-white shadow-sm shrink-0 ${u.role === 'admin' ? 'bg-danger' : (u.role === 'teacher' ? 'bg-primary' : 'bg-emerald-500')}`}>
@@ -116,25 +88,6 @@ const UserRow = memo(({ index, style, data }: { index: number, style: React.CSSP
                 <button onClick={() => navigate(`/profile/${u.id}`)} className="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-primary hover:bg-[var(--primary-light)] transition-all" title={t('admin.profile')}><UserIcon size={14} /></button>
                 <button onClick={() => { setEditingUser(u); setIsModalOpen(true); }} className="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-text hover:bg-elevated border border-transparent hover:border-border transition-all" title={t('admin.manage')}><Settings size={14} /></button>
                 <button onClick={() => handleDeleteClick(u.id)} className="w-8 h-8 rounded-lg flex items-center justify-center text-danger hover:bg-danger hover:text-white transition-all shadow-sm">
-=======
-        <div style={style} className={`grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_100px] px-6 border-b border-institutional-100 dark:border-institutional-800 items-center hover:bg-institutional-50 dark:hover:bg-institutional-800/50 transition-colors text-start`}>
-            <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-institutional-50 shadow-sm ${u.role === 'admin' ? 'bg-danger' : 'bg-institutional-300 dark:bg-institutional-700'}`}>
-                    {u.name.charAt(0)}
-                </div>
-                <span className="font-bold text-sm text-institutional-900 dark:text-institutional-50">{u.name}</span>
-            </div>
-            <div className="text-xs font-bold text-institutional-600 dark:text-institutional-400 truncate pr-4">{u.email}</div>
-            <div className="flex items-center gap-2">
-                {getRoleIcon(u.role)}
-                <span className="text-xs font-bold uppercase text-institutional-600 dark:text-institutional-300">{u.role}</span>
-            </div>
-            <div className="text-xs font-mono text-institutional-600">{u.id}</div>
-            <div className="flex items-center justify-end gap-2">
-                <button onClick={() => navigate(`/profile/${u.id}`)} className="w-8 h-8 flex items-center justify-center rounded-lg bg-institutional-100 dark:bg-institutional-800 text-institutional-600 hover:text-primary transition-colors" title={t('admin.profile')}><UserIcon size={14} /></button>
-                <button onClick={() => { setEditingUser(u); setIsModalOpen(true); }} className="w-8 h-8 flex items-center justify-center rounded-lg bg-institutional-100 dark:bg-institutional-800 text-institutional-600 hover:text-primary transition-colors"><Settings size={14} /></button>
-                <button onClick={() => handleDeleteClick(u.id)} className="w-8 h-8 flex items-center justify-center rounded-lg bg-institutional-100 dark:bg-institutional-800 text-institutional-600 hover:bg-danger hover:text-institutional-50 transition-colors">
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     {processingId === u.id ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
                 </button>
             </div>
@@ -234,32 +187,18 @@ const AdminRegistry: React.FC = () => {
         const id = editingUser ? editingUser.id : (formData.get('id') as string);
 
         try {
-<<<<<<< HEAD
             // Update UI optimistically if possible
-=======
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
             if (editingUser) {
                 const updates: any = {};
                 if (name !== editingUser.name) updates.name = name;
                 if (role !== editingUser.role) updates.role = role;
                 if (JSON.stringify(subjectsTaughtIds) !== JSON.stringify(editingUser.subjectsTaughtIds || [])) updates.subjectsTaughtIds = subjectsTaughtIds;
                 
-<<<<<<< HEAD
                 if (email && email !== editingUser.email) {
                     updates.email = email;
                 }
                 if (password && password.trim() !== '') {
                     updates.password = password;
-=======
-                // Credential Safeguards: Only update if explicitly changed
-                if (email && email !== editingUser.email) {
-                    updates.email = email;
-                    console.log(`[Admin] Explicit email change for ${id}`);
-                }
-                if (password && password.trim() !== '') {
-                    updates.password = password;
-                    console.log(`[Admin] Explicit password reset for ${id}`);
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 }
 
                 if (Object.keys(updates).length > 0) {
@@ -268,10 +207,7 @@ const AdminRegistry: React.FC = () => {
             } else {
                 if (!password) throw new Error("Password required");
                 
-<<<<<<< HEAD
-=======
-                // Create user in Firebase Auth using a secondary app instance to avoid logging out the admin
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                 const secondaryAppName = `SecondaryApp_${Date.now()}`;
                 const secondaryApp = initializeApp(firebaseConfig, secondaryAppName);
                 const secondaryAuth = getAuth(secondaryApp);
@@ -281,17 +217,10 @@ const AdminRegistry: React.FC = () => {
                     const uid = userCredential.user.uid;
                     
                     const newUser = {
-<<<<<<< HEAD
                         id: uid,
                         name,
                         email,
                         password,
-=======
-                        id: uid, // Use the actual Firebase Auth UID
-                        name,
-                        email,
-                        password, // Storing for demo purposes, though not recommended in production
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         role,
                         subjectsTaughtIds,
                         lastSeen: null,
@@ -303,10 +232,7 @@ const AdminRegistry: React.FC = () => {
                     await setDoc(doc(db, collections.users, uid), newUser);
                     if (role === 'economic') setTempPassword(password);
                     
-<<<<<<< HEAD
-=======
-                    // Cleanup secondary app
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+
                     await signOut(secondaryAuth);
                     await deleteApp(secondaryApp);
                 } catch (authError: any) {

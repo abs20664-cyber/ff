@@ -26,11 +26,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
 
     return (
         <motion.div 
-<<<<<<< HEAD
             className={`bg-[linear-gradient(135deg,var(--primary)_0%,rgba(0,0,0,0.4)_150%)] rounded-2xl flex items-center justify-center shadow-[var(--shadow-glow)] relative overflow-hidden shrink-0 ${d} ${className}`}
-=======
-            className={`bg-gradient-to-br from-primary to-[#004d26] rounded-2xl flex items-center justify-center shadow-xl shadow-primary/30 relative overflow-hidden shrink-0 ${d} ${className}`}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
             animate={{ 
                 y: [0, -4, 0],
                 rotate: [0, 2, -2, 0]
@@ -42,11 +38,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
             }}
         >
             <motion.div 
-<<<<<<< HEAD
                 className="absolute top-0 right-0 w-full h-full bg-white/[0.08] rounded-bl-full"
-=======
-                className="absolute top-0 right-0 w-full h-full bg-institutional-50/10 rounded-bl-full"
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 style={{ transformOrigin: 'top right' }}

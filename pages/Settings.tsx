@@ -69,11 +69,7 @@ const Settings: React.FC = () => {
                 <p className="text-xs font-bold text-text-secondary uppercase tracking-wider mt-2">{t('settings.manageCredentials')}</p>
             </div>
 
-<<<<<<< HEAD
             <div className="p-6 md:p-10 rounded-2xl bg-sidebar border border-border">
-=======
-            <div className="p-8 md:p-10 rounded-2xl bg-sidebar border border-border">
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 {status && (
                     <div className={`mb-6 p-4 rounded-xl flex items-center gap-3 text-xs font-bold uppercase tracking-wide ${status.type === 'success' ? 'bg-secondary/10 text-secondary' : 'bg-danger/10 text-danger'}`}>
                         {status.type === 'success' ? <CheckCircle size={16} /> : <AlertCircle size={16} />}
