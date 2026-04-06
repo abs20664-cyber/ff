@@ -127,8 +127,12 @@ const Login: React.FC = () => {
                     <h2 className="text-3xl font-display font-bold text-text tracking-tight mb-2">
                         {pendingUser ? t('economic.changePassword') : t('login.welcome')}
                     </h2>
-                    <p className="text-text-secondary text-sm font-medium">
-                        {pendingUser ? t('login.updatePasswordPrompt') : t('login.enterDetailsPrompt')}
+                    <p className="text-sm font-medium">
+                        {pendingUser ? (
+                            <span className="text-text-secondary">{t('login.updatePasswordPrompt')}</span>
+                        ) : (
+                            <span className="text-black dark:text-white">{t('login.enterDetailsPrompt')}</span>
+                        )}
                     </p>
 
                     {/* Modern Language Pill */}
