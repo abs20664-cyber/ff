@@ -16,7 +16,10 @@ const Settings = lazy(() => import('./pages/Settings'));
 const Profile = lazy(() => import('./pages/Profile'));
 const Login = lazy(() => import('./pages/Login'));
 const EconomicDashboard = lazy(() => import('./pages/EconomicDashboard'));
+<<<<<<< HEAD
 const Timetable = lazy(() => import('./pages/Timetable'));
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 
 const PageLoader = () => (
   <div className="flex-1 flex items-center justify-center min-h-[400px]">
@@ -47,7 +50,11 @@ const AppContent: React.FC = () => {
   // 2. Auth Guard: If no user, show login
   if (!user || !user.role) {
       return (
+<<<<<<< HEAD
         <Suspense fallback={<div className="h-screen bg-institutional-950" />}>
+=======
+        <Suspense fallback={<div className="h-screen bg-institutional-50" />}>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
           <Login />
         </Suspense>
       );
@@ -67,7 +74,10 @@ const AppContent: React.FC = () => {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/profile/:id" element={<Profile />} />
                 <Route path="/economic" element={<EconomicDashboard />} />
+<<<<<<< HEAD
                 <Route path="/timetable" element={<Timetable />} />
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </Suspense>

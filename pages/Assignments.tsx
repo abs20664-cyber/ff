@@ -375,10 +375,17 @@ const Assignments: React.FC = () => {
 
             {/* Modal: Creation */}
             {isCreateModalOpen && (
+<<<<<<< HEAD
                 <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-4 md:p-6 animate-in fade-in duration-300">
                     <div className="bg-sidebar rounded-[2rem] md:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-2xl w-full max-h-[90vh] overflow-y-auto scroll-hide p-6 md:p-12 relative border border-border">
                         <button onClick={() => setIsCreateModalOpen(false)} className={`absolute top-6 md:top-10 ${isRTL ? 'left-6 md:left-10' : 'right-6 md:right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
                         <div className="text-start mb-6 md:mb-10 pr-12">
+=======
+                <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-6 animate-in fade-in duration-300">
+                    <div className="bg-sidebar rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-2xl w-full max-h-[90vh] overflow-y-auto scroll-hide p-12 relative border border-border">
+                        <button onClick={() => setIsCreateModalOpen(false)} className={`absolute top-10 ${isRTL ? 'left-10' : 'right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
+                        <div className="text-start mb-10">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <h3 className="text-3xl font-black uppercase tracking-tight text-text leading-none">{t('homework.issueTask')}</h3>
                             <p className="text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] mt-3">Institutional Mandate Generation</p>
                         </div>
@@ -391,7 +398,11 @@ const Assignments: React.FC = () => {
                                 <label className="text-[10px] font-black uppercase text-text-secondary tracking-widest px-2">{t('homework.technicalObj')}</label>
                                 <textarea name="description" rows={4} className="w-full bg-background p-5 rounded-2xl border border-border text-sm font-black focus:border-primary outline-none resize-none shadow-inner text-text leading-relaxed" placeholder="Task description..." required />
                             </div>
+<<<<<<< HEAD
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+=======
+                            <div className="grid grid-cols-2 gap-8">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black uppercase text-text-secondary tracking-widest px-2">Date</label>
                                     <input type="date" name="date" className="w-full bg-background p-5 rounded-2xl border border-border text-sm font-black focus:border-primary outline-none shadow-inner text-text" required />
@@ -419,11 +430,19 @@ const Assignments: React.FC = () => {
             
             {/* Modal: Submission */}
             {isSubmitModalOpen && (
+<<<<<<< HEAD
                 <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-4 md:p-6 animate-in fade-in duration-300">
                     <div className="bg-sidebar rounded-[2rem] md:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-md w-full p-6 md:p-12 relative border border-border">
                          <button onClick={() => setIsSubmitModalOpen(null)} className={`absolute top-6 md:top-10 ${isRTL ? 'left-6 md:left-10' : 'right-6 md:right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
                          <div className="text-start mb-6 md:mb-10 pr-12">
                             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text leading-none">{t('homework.submit')}</h3>
+=======
+                <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-6 animate-in fade-in duration-300">
+                    <div className="bg-sidebar rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-md w-full p-12 relative border border-border">
+                         <button onClick={() => setIsSubmitModalOpen(null)} className={`absolute top-10 ${isRTL ? 'left-10' : 'right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
+                         <div className="text-start mb-10">
+                            <h3 className="text-3xl font-black uppercase tracking-tight text-text leading-none">{t('homework.submit')}</h3>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <p className="text-[10px] font-black text-text-secondary uppercase tracking-[0.3em] mt-3">Artifact Deployment Protocol</p>
                         </div>
                          <form onSubmit={handleSubmitWork} className="space-y-8">
@@ -481,8 +500,13 @@ const Assignments: React.FC = () => {
                                         const isBeingGraded = isGrading === sub.id;
 
                                         return (
+<<<<<<< HEAD
                                             <div key={sub.id} className="bg-sidebar rounded-[2rem] md:rounded-[2.5rem] border border-border shadow-sm transition-all hover:border-primary/20 overflow-hidden group">
                                                 <div className="p-6 md:p-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1.5fr_1fr_80px] items-center gap-6 md:gap-8 text-start">
+=======
+                                            <div key={sub.id} className="bg-sidebar rounded-[2.5rem] border border-border shadow-sm transition-all hover:border-primary/20 overflow-hidden group">
+                                                <div className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1.5fr_1fr_80px] items-center gap-6 md:gap-8 text-start">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                                     <div className="flex items-center gap-4">
                                                         <div className="w-12 h-12 rounded-2xl bg-background border border-border flex items-center justify-center text-primary font-black text-base shadow-inner">
                                                             {sub.studentName.charAt(0)}
@@ -538,8 +562,13 @@ const Assignments: React.FC = () => {
 
                                                 {/* Grading UI Expanded */}
                                                 {isBeingGraded && (
+<<<<<<< HEAD
                                                     <div className="p-6 md:p-12 bg-background border-t border-border animate-in slide-in-from-top-4 duration-500">
                                                         <div className="mb-6 md:mb-10 flex items-center gap-3">
+=======
+                                                    <div className="p-10 md:p-12 bg-background border-t border-border animate-in slide-in-from-top-4 duration-500">
+                                                        <div className="mb-10 flex items-center gap-3">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                                             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                                                                 <Award size={24} />
                                                             </div>

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+<<<<<<< HEAD
 /* ============================================================
    DESIGN TOKENS — Light Mode
    ============================================================ */
@@ -23,6 +24,24 @@
   --primary-foreground: #ffffff;
 
   /* Institutional Scale */
+=======
+:root {
+  /* Light Theme - Clean & Professional */
+  --bg-body: #f8fafc; /* slate-50 - Main Background (Page) */
+  --bg-surface: #ffffff; /* pure white - Card/Surface Background */
+  --text-primary: #0f172a; /* slate-900 */
+  --text-secondary: #475569; /* slate-600 - Darkened for better contrast */
+  --border-color: #e2e8f0; /* slate-200 */
+  --muted: #94a3b8; /* slate-400 - Darkened for better contrast */
+
+  /* Primary Brand Colors - Light Mode */
+  --primary: #006633;
+  --primary-hover: #00552b;
+  --primary-light: rgba(0, 102, 51, 0.1);
+  --primary-foreground: #ffffff;
+
+  /* Institutional Palette - Consistent Slate Scale */
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --inst-50: #f8fafc;
   --inst-100: #f1f5f9;
   --inst-200: #e2e8f0;
@@ -35,6 +54,7 @@
   --inst-900: #0f172a;
   --inst-950: #020617;
 
+<<<<<<< HEAD
   /* Shadows */
   --shadow-xs:   0 1px 2px 0 rgba(0,0,0,0.04);
   --shadow-sm:   0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.04);
@@ -84,12 +104,57 @@
 @theme {
   --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+=======
+  /* Shadows - Light Mode */
+  --shadow-soft-val: 0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-strong-val: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  /* Dark Theme - Deep & Modern */
+  --bg-body: #020617; /* slate-950 - Darker background */
+  --bg-surface: #0f172a; /* slate-900 - Darker surface */
+  --text-primary: #f8fafc; /* slate-50 */
+  --text-secondary: #94a3b8; /* slate-400 */
+  --border-color: #1e293b; /* slate-800 */
+  --muted: #475569; /* slate-600 */
+
+  /* Primary Brand Colors - Dark Mode (Brighter for contrast) */
+  --primary: #10b981; /* emerald-500 */
+  --primary-hover: #059669; /* emerald-600 */
+  --primary-light: rgba(16, 185, 129, 0.15);
+  --primary-foreground: #ffffff;
+
+  /* Institutional Palette - Keep consistent so dark:* classes work correctly */
+  --inst-50: #f8fafc;
+  --inst-100: #f1f5f9;
+  --inst-200: #e2e8f0;
+  --inst-300: #cbd5e1;
+  --inst-400: #94a3b8;
+  --inst-500: #64748b;
+  --inst-600: #475569;
+  --inst-700: #334155;
+  --inst-800: #1e293b;
+  --inst-900: #0f172a;
+  --inst-950: #020617;
+
+  /* Shadows - Dark Mode (Deeper and softer) */
+  --shadow-soft-val: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --shadow-strong-val: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+@theme {
+  --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --font-arabic: "IBM Plex Sans Arabic", sans-serif;
 
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-light: var(--primary-light);
+<<<<<<< HEAD
   --color-primary-ring: var(--primary-ring);
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-primary-foreground: var(--primary-foreground);
 
   --color-algeria-green: #006633;
@@ -97,6 +162,7 @@
   --color-algeria-white: #FFFFFF;
 
   --color-success: #10b981;
+<<<<<<< HEAD
   --color-success-light: rgba(16,185,129,0.12);
   --color-warning: #f59e0b;
   --color-warning-light: rgba(245,158,11,0.12);
@@ -107,6 +173,13 @@
 
   --color-surface: var(--bg-surface);
   --color-elevated: var(--bg-elevated);
+=======
+  --color-warning: #f59e0b;
+  --color-danger: #f43f5e;
+
+  /* Semantic Colors mapped to variables */
+  --color-surface: var(--bg-surface);
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-body: var(--bg-body);
   --color-background: var(--bg-body);
   --color-sidebar: var(--bg-surface);
@@ -117,8 +190,13 @@
 
   --shadow-soft: var(--shadow-soft-val);
   --shadow-strong: var(--shadow-strong-val);
+<<<<<<< HEAD
   --shadow-glow: var(--shadow-glow);
 
+=======
+
+  /* Institutional Palette */
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-institutional-50: var(--inst-50);
   --color-institutional-100: var(--inst-100);
   --color-institutional-200: var(--inst-200);
@@ -132,6 +210,7 @@
   --color-institutional-950: var(--inst-950);
 }
 
+<<<<<<< HEAD
 /* ============================================================
    BASE STYLES
    ============================================================ */
@@ -339,11 +418,50 @@
   }
 
   /* ── Live glow ── */
+=======
+@layer base {
+  body {
+    @apply bg-body text-text font-sans antialiased;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-bold;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  /* RTL TYPOGRAPHY */
+  [dir="rtl"] { 
+    font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", sans-serif !important; 
+  }
+  [dir="rtl"] * { 
+    letter-spacing: normal !important; 
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-thumb { @apply bg-institutional-300 rounded-full; }
+  .dark ::-webkit-scrollbar-thumb { @apply bg-institutional-800; }
+}
+
+@layer components {
+  .academic-card {
+    @apply bg-surface border border-border rounded-2xl shadow-soft transition-all duration-300 hover:shadow-strong hover:-translate-y-0.5;
+  }
+
+  .glass {
+    @apply bg-surface/80 backdrop-blur-xl border border-white/10 dark:border-white/5;
+  }
+
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   .live-now-glow {
     @apply border-success bg-success/5 relative;
   }
   .live-now-glow::after {
     content: '';
+<<<<<<< HEAD
     @apply absolute -inset-px rounded-[inherit] border-2 border-success opacity-30;
     pointer-events: none;
     animation: glow-pulse 2s ease-in-out infinite;
@@ -434,4 +552,24 @@
   .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+=======
+    @apply absolute -inset-0.5 rounded-[inherit] border-2 border-success opacity-40 animate-pulse;
+    pointer-events: none;
+  }
+
+  .fade-in { animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .scroll-hide::-webkit-scrollbar { display: none; }
+  .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 }

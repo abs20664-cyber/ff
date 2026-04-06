@@ -119,9 +119,14 @@ const Materials: React.FC = () => {
                         ))}
                     </div>
                 ) : (
+<<<<<<< HEAD
                     <div className="bg-sidebar rounded-[2.5rem] overflow-hidden border border-border shadow-xl overflow-x-auto scroll-hide">
                          <div className="min-w-[800px]">
                          <div className="grid grid-cols-[1fr_1.5fr_1fr_120px] p-6 lg:p-8 border-b border-border bg-background font-black text-[10px] uppercase tracking-[0.3em] text-text-secondary">
+=======
+                    <div className="bg-sidebar rounded-[2.5rem] overflow-hidden border border-border shadow-xl">
+                         <div className="grid grid-cols-[1fr_1.5fr_1fr_120px] p-8 border-b border-border bg-background font-black text-[10px] uppercase tracking-[0.3em] text-text-secondary">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <div className="text-start">Resource</div>
                             <div className="text-start">{t('cabinet.facultyAttributed')}</div>
                             <div className="text-start">{t('cabinet.date')}</div>
@@ -152,7 +157,10 @@ const Materials: React.FC = () => {
                                 </div>
                             </div>
                         ))}
+<<<<<<< HEAD
                         </div>
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     </div>
                 )
             ) : (

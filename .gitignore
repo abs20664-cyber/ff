@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -25,3 +26,6 @@ dist-ssr
 
 # Vercel
 .vercel
+=======
+node_modules
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)

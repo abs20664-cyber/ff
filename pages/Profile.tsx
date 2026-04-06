@@ -34,12 +34,15 @@ const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState<Partial<User>>({});
   const [saving, setSaving] = useState(false);
+<<<<<<< HEAD
   
   // Avatar Picker State
   const [showAvatarPicker, setShowAvatarPicker] = useState(false);
   const DICEBEAR_STYLES = ['lorelei', 'adventurer', 'fun-emoji', 'bottts', 'micah', 'thumbs'];
   const [avatarStyle, setAvatarStyle] = useState('lorelei');
   const [avatarSeed, setAvatarSeed] = useState(id || 'default');
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 
   const isOwnProfile = currentUser?.id === id;
   const isAdmin = currentUser?.role === 'admin';
@@ -152,6 +155,7 @@ const Profile: React.FC = () => {
     );
   }
 
+<<<<<<< HEAD
   const defaultAvatar = `https://api.dicebear.com/9.x/lorelei/svg?seed=${profileUser.id}`;
   const displayAvatar = (isEditing && editData.avatar) ? editData.avatar : (profileUser.avatar || defaultAvatar);
 
@@ -225,19 +229,43 @@ const Profile: React.FC = () => {
                 <p className="text-[11px] font-bold text-text-secondary uppercase tracking-[0.2em]">User Identity Management</p>
             </div>
           </div>
+=======
+  return (
+    <div className="flex-1 p-4 md:p-8 max-w-4xl mx-auto w-full fade-in" dir={isRTL ? 'rtl' : 'ltr'}>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => navigate(-1)}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-institutional-100 dark:bg-institutional-800 text-institutional-600 hover:text-primary transition-colors"
+          >
+            <ChevronLeft size={20} className={isRTL ? 'rotate-180' : ''} />
+          </button>
+          <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase text-institutional-900 dark:text-institutional-50">
+            {t('profile.title')}
+          </h1>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
         </div>
         
         {isOwnProfile && !isEditing && (
           <button 
             onClick={() => setIsEditing(true)}
+<<<<<<< HEAD
             className="group flex flex-col md:flex-row items-center justify-center md:gap-3 px-6 py-4 bg-primary text-institutional-50 rounded-3xl font-black text-[11px] md:text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/30 hover:bg-primary/95 hover:scale-[1.02] active:scale-95 transition-all"
           >
             <Edit3 size={18} className="mb-1 md:mb-0 group-hover:-translate-y-1 transition-transform" />
             <span>{t('profile.editProfile')}</span>
+=======
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-institutional-50 rounded-xl font-bold hover:bg-primary-hover transition-colors shadow-lg shadow-primary/20"
+          >
+            <Edit3 size={18} />
+            <span className="hidden sm:inline">{t('profile.editProfile')}</span>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
           </button>
         )}
       </div>
 
+<<<<<<< HEAD
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Avatar & Basic Info */}
         <div className="lg:col-span-4 space-y-8">
@@ -287,11 +315,57 @@ const Profile: React.FC = () => {
                     <p className="text-sm font-bold text-text truncate">{profileUser.id}</p>
                   </div>
                 </div>
+=======
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Left Column: Avatar & Basic Info */}
+        <div className="md:col-span-1 space-y-6">
+          <div className="bg-surface border-2 border-institutional-200 dark:border-institutional-800 rounded-3xl p-6 text-center shadow-sm">
+            <div className="relative inline-block mb-4">
+              <div className="w-32 h-32 rounded-full bg-institutional-100 dark:bg-institutional-800 flex items-center justify-center border-4 border-white dark:border-institutional-900 shadow-xl overflow-hidden">
+                {profileUser.avatar ? (
+                  <img src={profileUser.avatar} alt={profileUser.name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-4xl font-black text-institutional-600">
+                    {profileUser.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                  </span>
+                )}
+              </div>
+              {isEditing && (
+                <button 
+                  onClick={() => {
+                    const url = prompt('Enter image URL:', editData.avatar || '');
+                    if (url !== null) setEditData({ ...editData, avatar: url });
+                  }}
+                  className="absolute bottom-0 right-0 w-10 h-10 bg-primary text-institutional-50 rounded-full border-4 border-white dark:border-institutional-900 flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <Camera size={18} />
+                </button>
+              )}
+            </div>
+            
+            <h2 className="text-xl font-black text-institutional-900 dark:text-institutional-50 mb-1">
+              {profileUser.name}
+            </h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional-100 dark:bg-institutional-800 text-institutional-600 text-xs font-black uppercase tracking-widest mb-4">
+              <Shield size={12} />
+              {t(`roles.${profileUser.role}`)}
+            </div>
+
+            <div className="space-y-3 text-left" dir={isRTL ? 'rtl' : 'ltr'}>
+              <div className="flex items-center gap-3 text-institutional-600 dark:text-institutional-400 text-sm">
+                <Mail size={16} className="shrink-0" />
+                <span className="truncate">{profileUser.email}</span>
+              </div>
+              <div className="flex items-center gap-3 text-institutional-600 dark:text-institutional-400 text-sm">
+                <Clock size={16} className="shrink-0" />
+                <span>{profileUser.id}</span>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
               </div>
             </div>
           </div>
 
           {/* Platform Metadata */}
+<<<<<<< HEAD
           <div className="bg-gradient-to-br from-surface to-muted/10 border border-border rounded-[2.5rem] p-8 shadow-lg">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-text mb-6 flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-primary"></div>
@@ -314,6 +388,29 @@ const Profile: React.FC = () => {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-text-secondary mb-1">{t('profile.timeOnPlatform')}</p>
                   <p className="text-base font-bold text-text">{calculateDuration(profileUser.createdAt)}</p>
+=======
+          <div className="bg-institutional-50 dark:bg-institutional-950/50 border-2 border-institutional-100 dark:border-institutional-800 rounded-3xl p-6 space-y-4">
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-institutional-600 mb-2">
+              {t('profile.platformMetadata')}
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-institutional-50 dark:bg-institutional-800 flex items-center justify-center text-primary shadow-sm">
+                  <Calendar size={16} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase text-institutional-600 leading-none mb-1">{t('profile.memberSince')}</p>
+                  <p className="text-sm font-bold text-institutional-700 dark:text-institutional-300">{formatDate(profileUser.createdAt)}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-institutional-50 dark:bg-institutional-800 flex items-center justify-center text-primary shadow-sm">
+                  <Clock size={16} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase text-institutional-600 leading-none mb-1">{t('profile.timeOnPlatform')}</p>
+                  <p className="text-sm font-bold text-institutional-700 dark:text-institutional-300">{calculateDuration(profileUser.createdAt)}</p>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 </div>
               </div>
             </div>
@@ -321,6 +418,7 @@ const Profile: React.FC = () => {
         </div>
 
         {/* Right Column: Details & Edit Form */}
+<<<<<<< HEAD
         <div className="lg:col-span-8 space-y-8">
           {/* Academic Information */}
           <div className="card p-8 md:p-10 border-none shadow-xl relative overflow-hidden">
@@ -342,6 +440,24 @@ const Profile: React.FC = () => {
               {profileUser.role === 'student' && !isEconomic && (
                 <div className="bg-muted/10 p-6 rounded-[2rem] border border-border/50">
                   <label className="block text-[10px] font-black uppercase tracking-widest text-primary mb-3">
+=======
+        <div className="md:col-span-2 space-y-6">
+          {/* Academic Information */}
+          <div className="bg-surface border-2 border-institutional-200 dark:border-institutional-800 rounded-3xl p-6 md:p-8 shadow-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                <BookOpen size={20} />
+              </div>
+              <h3 className="text-lg font-black text-institutional-900 dark:text-institutional-50 uppercase tracking-tight">
+                {t('profile.academicInfo')}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              {profileUser.role === 'student' && !isEconomic && (
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-institutional-600 mb-2">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     {t('profile.fieldOfStudy')}
                   </label>
                   {isEditing ? (
@@ -350,17 +466,26 @@ const Profile: React.FC = () => {
                       value={editData.fieldOfStudy || ''}
                       onChange={(e) => setEditData({ ...editData, fieldOfStudy: e.target.value })}
                       placeholder={t('profile.fieldPlaceholder')}
+<<<<<<< HEAD
                       className="w-full bg-surface p-5 rounded-2xl border-2 border-border font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-inner text-text"
                     />
                   ) : (
                     <p className="text-text font-black text-xl">
                       {profileUser.fieldOfStudy || <span className="text-text-secondary/50 font-medium italic">Unspecified Target...</span>}
+=======
+                      className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none transition-all"
+                    />
+                  ) : (
+                    <p className="text-institutional-700 dark:text-institutional-300 font-bold text-lg">
+                      {profileUser.fieldOfStudy || '---'}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     </p>
                   )}
                 </div>
               )}
 
               {profileUser.role === 'teacher' && !isEconomic && (
+<<<<<<< HEAD
                 <div className="bg-muted/10 p-6 rounded-[2rem] border border-border/50">
                   <label className="block text-[10px] font-black uppercase tracking-widest text-primary mb-3">
                     {t('profile.subjects')}
@@ -380,10 +505,28 @@ const Profile: React.FC = () => {
                                     <svg className="absolute w-4 h-4 text-white scale-0 peer-checked:scale-100 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
                                 <span className="group-hover:text-primary transition-colors text-sm">{s.name}</span>
+=======
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-institutional-600 mb-2">
+                    {t('profile.subjects')}
+                  </label>
+                  {isEditing ? (
+                    <div className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none max-h-40 overflow-y-auto">
+                        {subjects.map(s => (
+                            <label key={s.id} className="flex items-center gap-2">
+                                <input type="checkbox" checked={editData.subjectsTaughtIds?.includes(s.id)} onChange={(e) => {
+                                    const newSubjects = e.target.checked 
+                                        ? [...(editData.subjectsTaughtIds || []), s.id]
+                                        : (editData.subjectsTaughtIds || []).filter(id => id !== s.id);
+                                    setEditData({ ...editData, subjectsTaughtIds: newSubjects });
+                                }} />
+                                {s.name}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             </label>
                         ))}
                     </div>
                   ) : (
+<<<<<<< HEAD
                     <div className="flex flex-wrap gap-2">
                         {profileUser.subjectsTaughtIds?.map(id => {
                             const subj = subjects.find(s => s.id === id);
@@ -395,17 +538,28 @@ const Profile: React.FC = () => {
                             );
                         }) || <span className="text-text-secondary/50 font-medium italic">Unspecified Subjects...</span>}
                     </div>
+=======
+                    <p className="text-institutional-700 dark:text-institutional-300 font-bold text-lg">
+                      {profileUser.subjectsTaughtIds?.map(id => subjects.find(s => s.id === id)?.name).filter(Boolean).join(', ') || '---'}
+                    </p>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   )}
                 </div>
               )}
 
               {(profileUser.role === 'admin' || isEconomic) && (
+<<<<<<< HEAD
                 <div className="p-6 bg-warning/5 rounded-[2rem] border-2 border-dashed border-warning/30 flex items-center gap-4">
                   <div className="p-3 bg-warning/20 rounded-full text-warning">
                     <Shield size={24} />
                   </div>
                   <p className="text-warning-hover text-sm font-bold italic">
                     {isEconomic && !isOwnProfile ? "Financial oversight role: Academic data restricted." : "Administrative accounts strictly manage access control. No public academic data associated."}
+=======
+                <div className="p-4 bg-institutional-50 dark:bg-institutional-900/50 rounded-2xl border border-dashed border-institutional-200 dark:border-institutional-800">
+                  <p className="text-institutional-600 text-sm italic">
+                    {isEconomic && !isOwnProfile ? "Financial oversight role: Academic data restricted." : "Administrative accounts do not display public academic data."}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   </p>
                 </div>
               )}
@@ -413,6 +567,7 @@ const Profile: React.FC = () => {
           </div>
 
           {/* Personal Information */}
+<<<<<<< HEAD
           <div className="card p-8 md:p-10 border-none shadow-xl relative overflow-hidden">
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
 
@@ -431,6 +586,21 @@ const Profile: React.FC = () => {
             <div className="space-y-8 relative z-10">
               <div className="bg-muted/10 p-6 rounded-[2rem] border border-border/50">
                 <label className="block text-[10px] font-black uppercase tracking-widest text-primary mb-3">
+=======
+          <div className="bg-surface border-2 border-institutional-200 dark:border-institutional-800 rounded-3xl p-6 md:p-8 shadow-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-institutional-100 dark:bg-institutional-800 text-institutional-600 dark:text-institutional-300 flex items-center justify-center">
+                <Briefcase size={20} />
+              </div>
+              <h3 className="text-lg font-black text-institutional-900 dark:text-institutional-50 uppercase tracking-tight">
+                {t('profile.personalInfo')}
+              </h3>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-institutional-600 mb-2">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   {t('profile.age')}
                 </label>
                 {isEditing ? (
@@ -438,17 +608,30 @@ const Profile: React.FC = () => {
                     type="number"
                     value={editData.age || ''}
                     onChange={(e) => setEditData({ ...editData, age: parseInt(e.target.value) || 0 })}
+<<<<<<< HEAD
                     className="w-full sm:w-48 bg-surface p-5 rounded-2xl border-2 border-border font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-inner text-text"
                   />
                 ) : (
                   <p className="text-text font-black text-xl">
                     {profileUser.age ? `${profileUser.age} ${t('profile.years')}` : <span className="text-text-secondary/50 font-medium italic">Unspecified...</span>}
+=======
+                    className="w-32 bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none transition-all"
+                  />
+                ) : (
+                  <p className="text-institutional-700 dark:text-institutional-300 font-bold text-lg">
+                    {profileUser.age ? `${profileUser.age} ${t('profile.years')}` : '---'}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   </p>
                 )}
               </div>
 
+<<<<<<< HEAD
               <div className="bg-muted/10 p-6 rounded-[2rem] border border-border/50">
                 <label className="block text-[10px] font-black uppercase tracking-widest text-primary mb-3">
+=======
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-institutional-600 mb-2">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   {t('profile.bio')}
                 </label>
                 {isEditing ? (
@@ -456,12 +639,21 @@ const Profile: React.FC = () => {
                     value={editData.bio || ''}
                     onChange={(e) => setEditData({ ...editData, bio: e.target.value })}
                     placeholder={t('profile.bioPlaceholder')}
+<<<<<<< HEAD
                     rows={5}
                     className="w-full bg-surface p-6 rounded-2xl border-2 border-border font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none shadow-inner text-text"
                   />
                 ) : (
                   <p className="text-text-secondary leading-relaxed font-medium text-lg min-h-[100px]">
                     {profileUser.bio || <span className="opacity-50 italic">This user hasn't written a biography yet.</span>}
+=======
+                    rows={4}
+                    className="w-full bg-institutional-100 dark:bg-institutional-800 p-4 rounded-xl border-2 border-institutional-200 dark:border-institutional-700 font-bold focus:border-primary outline-none transition-all resize-none"
+                  />
+                ) : (
+                  <p className="text-institutional-600 dark:text-institutional-400 leading-relaxed">
+                    {profileUser.bio || '---'}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                   </p>
                 )}
               </div>
@@ -470,6 +662,7 @@ const Profile: React.FC = () => {
 
           {/* Action Buttons for Editing */}
           {isEditing && (
+<<<<<<< HEAD
             <div className="sticky bottom-6 md:static flex flex-col sm:flex-row items-center gap-4 pt-6 z-50 animate-in slide-in-from-bottom-4">
               <button 
                 onClick={handleSave}
@@ -481,6 +674,19 @@ const Profile: React.FC = () => {
                 ) : (
                   <>
                     <Save size={22} />
+=======
+            <div className="sticky bottom-4 md:static flex items-center gap-4 pt-4 z-50">
+              <button 
+                onClick={handleSave}
+                disabled={saving}
+                className="flex-1 flex items-center justify-center gap-2 bg-primary text-institutional-50 p-4 rounded-2xl font-black uppercase tracking-widest hover:bg-primary-hover transition-all disabled:opacity-50 shadow-lg shadow-primary/20 backdrop-blur-sm"
+              >
+                {saving ? (
+                  <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                ) : (
+                  <>
+                    <Save size={20} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     {t('profile.saveChanges')}
                   </>
                 )}
@@ -491,10 +697,16 @@ const Profile: React.FC = () => {
                   setEditData(profileUser);
                 }}
                 disabled={saving}
+<<<<<<< HEAD
                 className="w-full sm:w-auto px-8 py-5 md:py-6 bg-surface text-text rounded-[2rem] font-black uppercase tracking-widest hover:bg-muted transition-all shadow-lg border border-border flex items-center justify-center gap-2"
               >
                 <X size={20} />
                 Cancel
+=======
+                className="px-6 py-4 bg-institutional-100 dark:bg-institutional-800 text-institutional-600 dark:text-institutional-300 rounded-2xl font-black uppercase tracking-widest hover:bg-institutional-200 dark:hover:bg-institutional-700 transition-all"
+              >
+                <X size={20} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
               </button>
             </div>
           )}

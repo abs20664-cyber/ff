@@ -58,7 +58,11 @@ const MessageItem = React.memo(({ message, isMe, isMobile, onDelete, onEdit, onP
                     <div className="relative">
                         <div 
                             onClick={() => isMobile && setShowActions(!showActions)}
+<<<<<<< HEAD
                             className={`px-4 py-3 text-[15px] font-medium leading-relaxed transition-all cursor-pointer md:cursor-default relative shadow-sm ${isMe ? `bg-gradient-to-br from-primary to-primary-hover text-white rounded-[24px] ${isRTL ? 'rounded-bl-[6px]' : 'rounded-br-[6px]'}` : `bg-surface dark:bg-institutional-900 border border-border text-text rounded-[24px] ${isRTL ? 'rounded-br-[6px]' : 'rounded-bl-[6px]'}`}`}
+=======
+                            className={`px-4 py-2.5 text-[15px] md:text-[16px] font-normal leading-relaxed transition-all cursor-pointer md:cursor-default ${isMe ? `bg-primary text-institutional-50 rounded-[20px] ${isRTL ? 'rounded-bl-none' : 'rounded-br-none'}` : `bg-institutional-50 dark:bg-institutional-900 text-institutional-900 dark:text-institutional-50 rounded-[20px] ${isRTL ? 'rounded-br-none' : 'rounded-bl-none'}`}`}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         >
                             {message.isPinned && <Pin size={12} className="absolute -top-2 -right-2 text-institutional-50 bg-primary rounded-full p-1 border-2 border-surface shadow-sm" />}
                             {message.text && <p className="whitespace-pre-wrap break-words text-start">{message.text}</p>}
@@ -534,6 +538,7 @@ const Inbox: React.FC = () => {
         }
     }, [messages.length, remoteTyping, isScrollingUp]);
 
+<<<<<<< HEAD
 
     useEffect(() => {
         if (scrollRef.current && !isScrollingUp) {
@@ -541,6 +546,8 @@ const Inbox: React.FC = () => {
         }
     }, [messages.length, remoteTyping, isScrollingUp]);
 
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
         setIsScrollingUp(scrollHeight - scrollTop - clientHeight > 200);
@@ -597,11 +604,19 @@ const Inbox: React.FC = () => {
     }, [t]);
 
     return (
+<<<<<<< HEAD
         <div className="flex h-full w-full overflow-hidden bg-surface/50 dark:bg-institutional-950/50 pb-[100px] sm:pb-[140px]">
             
             {/* Sidebar View */}
             <div className={`${showConversation ? 'hidden lg:flex' : 'flex'} w-full lg:w-[400px] flex-col border-r border-institutional-100 dark:border-institutional-900 shrink-0 transition-all bg-surface/80 dark:bg-institutional-950/80 backdrop-blur-3xl`}>
                 <div className="p-6 space-y-6 pt-8">
+=======
+        <div className="flex h-screen overflow-hidden bg-surface dark:bg-institutional-950">
+            
+            {/* Sidebar View */}
+            <div className={`${showConversation ? 'hidden lg:flex' : 'flex'} w-full lg:w-[380px] flex-col border-r border-institutional-100 dark:border-institutional-900 shrink-0 transition-all`}>
+                <div className="p-6 space-y-6">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     <div className="flex items-center justify-between">
                         <h3 className="text-2xl font-bold text-institutional-900 dark:text-institutional-50">{t('nav.inbox')}</h3>
                         {user?.role === 'teacher' && (
@@ -611,17 +626,29 @@ const Inbox: React.FC = () => {
                         )}
                     </div>
                     <div className="relative group">
+<<<<<<< HEAD
                         <Search className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 text-institutional-500 group-focus-within:text-primary transition-colors`} size={18} />
+=======
+                        <Search className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 text-institutional-600`} size={18} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         <input 
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
                             placeholder={t('inbox.searchPlaceholder')}
+<<<<<<< HEAD
                             className={`w-full bg-surface dark:bg-institutional-900 rounded-full border border-border focus:border-primary/50 shadow-sm ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all text-institutional-900 dark:text-institutional-50`}
+=======
+                            className={`w-full bg-institutional-50 dark:bg-institutional-900 rounded-xl ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all text-institutional-900 dark:text-institutional-50`}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         />
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className="flex-1 overflow-y-auto scroll-hide pb-4 relative">
+=======
+                <div className="flex-1 overflow-y-auto scroll-hide">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                     {/* Groups Section */}
                     {filteredSidebar.groups.length > 0 && (
                         <div className="mb-4">
@@ -631,10 +658,17 @@ const Inbox: React.FC = () => {
                                     <button 
                                         key={g.id}
                                         onClick={() => selectTarget({ type: 'group', id: g.id, name: g.name, participantIds: g.participantIds })}
+<<<<<<< HEAD
                                         className={`w-[calc(100%-16px)] mx-2 my-0.5 px-4 py-3 flex items-center gap-4 transition-all rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-primary group/item ${activeTarget?.id === g.id ? 'glass shadow-sm border-primary/20 bg-primary/5' : 'hover:bg-institutional-100 dark:hover:bg-institutional-800 border-transparent hover:shadow-sm'}`}
                                     >
                                         <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform ${activeTarget?.id === g.id ? 'bg-primary text-white shadow-md scale-105' : 'bg-primary/10 text-primary group-hover/item:scale-105'}`}>
                                             <ShieldCheck size={22} />
+=======
+                                        className={`w-full px-6 py-4 flex items-center gap-4 transition-all ${activeTarget?.id === g.id ? 'bg-institutional-50 dark:bg-institutional-900' : 'hover:bg-institutional-50/50 dark:hover:bg-institutional-900/50'}`}
+                                    >
+                                        <div className="w-14 h-14 rounded-full flex items-center justify-center bg-primary/10 text-primary shrink-0">
+                                            <ShieldCheck size={24} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                         </div>
                                         <div className="text-start flex-1 min-w-0">
                                             <div className="flex items-center justify-between mb-0.5">
@@ -664,10 +698,17 @@ const Inbox: React.FC = () => {
                                         <button 
                                             key={u.id}
                                             onClick={() => selectTarget({ type: 'dm', id: u.id, name: u.name, role: u.role, lastSeen: u.lastSeen })}
+<<<<<<< HEAD
                                             className={`w-[calc(100%-16px)] mx-2 my-0.5 px-4 py-3 flex items-center gap-4 transition-all rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-primary group/item ${activeTarget?.id === u.id ? 'glass shadow-sm border-primary/20 bg-primary/5' : 'hover:bg-institutional-100 dark:hover:bg-institutional-800 border-transparent hover:shadow-sm'}`}
                                         >
                                             <div className="relative shrink-0">
                                                 <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-transform ${activeTarget?.id === u.id ? 'bg-gradient-to-tr from-primary to-primary-hover text-white shadow-md scale-105 border-2 border-surface' : 'bg-institutional-100 dark:bg-institutional-800 text-text group-hover/item:shadow-md group-hover/item:scale-105'}`}>
+=======
+                                            className={`w-full px-6 py-4 flex items-center gap-4 transition-all ${activeTarget?.id === u.id ? 'bg-institutional-50 dark:bg-institutional-900' : 'hover:bg-institutional-50/50 dark:hover:bg-institutional-900/50'}`}
+                                        >
+                                            <div className="relative shrink-0">
+                                                <div className="w-14 h-14 rounded-full flex items-center justify-center bg-institutional-100 dark:bg-institutional-800 text-institutional-900 dark:text-institutional-50 font-bold text-lg">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                                     {u.name.charAt(0)}
                                                 </div>
                                                 {isOnline && (
@@ -689,12 +730,16 @@ const Inbox: React.FC = () => {
                             </div>
                         </div>
                     )}
+<<<<<<< HEAD
 
                     <div className="h-32 shrink-0 w-full"></div>
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 </div>
             </div>
 
             {/* Main Conversation Window */}
+<<<<<<< HEAD
             <div className={`${!showConversation ? 'hidden lg:flex' : 'flex'} flex-1 flex-col bg-surface/30 dark:bg-institutional-950/30 backdrop-blur-sm transition-all relative overflow-hidden`}>
                 {activeTarget ? (
                     <>
@@ -708,6 +753,19 @@ const Inbox: React.FC = () => {
                                 </button>
                                 <div className="w-11 h-11 rounded-full flex items-center justify-center bg-gradient-to-tr from-primary to-primary-hover text-white font-bold shrink-0 text-lg shadow-sm border-2 border-surface">
                                     {activeTarget.type === 'dm' ? activeTarget.name.charAt(0) : <ShieldCheck size={20} />}
+=======
+            <div className={`${!showConversation ? 'hidden lg:flex' : 'flex'} flex-1 flex-col bg-surface dark:bg-institutional-950 transition-all relative overflow-hidden`}>
+                {activeTarget ? (
+                    <>
+                        {/* Conversation Header */}
+                        <div className="px-6 py-4 border-b border-institutional-100 dark:border-institutional-900 flex items-center justify-between bg-surface/80 dark:bg-institutional-950/80 backdrop-blur-md sticky top-0 z-30">
+                            <div className="flex items-center gap-4 min-w-0">
+                                <button onClick={() => setShowConversation(false)} className="lg:hidden p-2 -ml-2 text-institutional-900 dark:text-institutional-50 hover:bg-institutional-100 dark:hover:bg-institutional-900 rounded-full transition-all">
+                                    <ChevronLeft size={24} className={isRTL ? 'rotate-180' : ''} />
+                                </button>
+                                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-institutional-100 dark:bg-institutional-800 text-institutional-900 dark:text-institutional-50 font-bold shrink-0 text-lg">
+                                    {activeTarget.type === 'dm' ? activeTarget.name.charAt(0) : <ShieldCheck size={24} />}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 </div>
                                 <div className="text-start min-w-0">
                                     <h4 className="font-bold text-[17px] text-institutional-900 dark:text-institutional-50 truncate flex items-center gap-2">
@@ -764,12 +822,18 @@ const Inbox: React.FC = () => {
                             className="flex-1 overflow-y-auto px-4 py-6 space-y-1 scroll-smooth relative"
                         >
                             {messages.length === 0 && (
+<<<<<<< HEAD
                                 <div className="h-full flex flex-col items-center justify-center select-none pt-20">
                                     <div className="relative">
                                         <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
                                         <ShieldCheck size={80} strokeWidth={1} className="text-primary/40 relative z-10" />
                                     </div>
                                     <p className="mt-6 text-sm font-bold text-muted uppercase tracking-[0.2em]">{t('inbox.protocolInitiated') || 'Encrypted Channel Open'}</p>
+=======
+                                <div className="h-full flex flex-col items-center justify-center opacity-20 select-none">
+                                    <ShieldCheck size={80} strokeWidth={1} className="text-institutional-600" />
+                                    <p className="mt-4 text-sm font-medium text-institutional-600 uppercase tracking-widest">{t('inbox.protocolInitiated')}</p>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 </div>
                             )}
                             
@@ -811,6 +875,7 @@ const Inbox: React.FC = () => {
                                     <ArrowDown size={18} />
                                 </button>
                             )}
+<<<<<<< HEAD
                             <div className="bottom-scroll-marker h-1 w-full shrink-0"></div>
                         </div>
 
@@ -826,17 +891,40 @@ const Inbox: React.FC = () => {
                                         </div>
                                     </div>
                                     <button onClick={() => { setEditingMessage(null); setInputText(''); }} className="p-1.5 text-institutional-600 hover:bg-danger/10 hover:text-danger rounded-xl transition-all"><X size={18} /></button>
+=======
+                        </div>
+
+                        {/* Input & Control Area */}
+                        <div className="p-4 border-t border-institutional-100 dark:border-institutional-900">
+                            {editingMessage && (
+                                <div className="mb-3 p-3 bg-primary/5 rounded-xl flex items-center justify-between border border-primary/10">
+                                    <div className="flex items-center gap-3 min-w-0">
+                                        <div className="p-2 bg-primary text-institutional-50 rounded-lg"><Edit2 size={16} /></div>
+                                        <div className="min-w-0">
+                                            <p className="text-[11px] font-bold text-primary uppercase tracking-wider">{t('inbox.editMessage')}</p>
+                                            <p className="text-sm text-institutional-600 dark:text-institutional-300 truncate">{editingMessage.text}</p>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => { setEditingMessage(null); setInputText(''); }} className="p-1 text-institutional-600 hover:text-danger"><X size={18} /></button>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 </div>
                             )}
                             
                             {(activeTarget.type === 'group' && activeTarget.isBroadcast && user?.role === 'student') ? (
+<<<<<<< HEAD
                                 <div className="flex items-center justify-center p-4 bg-institutional-50/80 dark:bg-institutional-900/80 backdrop-blur-md rounded-2xl border border-dashed border-institutional-300 dark:border-institutional-700 mx-auto max-w-4xl shadow-sm">
                                     <p className="text-sm font-semibold text-institutional-600 dark:text-institutional-400 flex items-center gap-2">
                                         <ShieldAlert size={18} />
+=======
+                                <div className="flex items-center justify-center p-4 bg-institutional-50 dark:bg-institutional-900/50 rounded-xl border border-dashed border-institutional-200 dark:border-institutional-800">
+                                    <p className="text-sm text-institutional-600 flex items-center gap-2">
+                                        <ShieldAlert size={16} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                         {t('inbox.broadcastOnly') || 'Only teachers can send messages here.'}
                                     </p>
                                 </div>
                             ) : isRecording ? (
+<<<<<<< HEAD
                                 <div className="flex items-center gap-4 w-full glass p-2 rounded-full border border-primary/20 shadow-strong animate-in fade-in duration-200 max-w-4xl mx-auto">
                                     <div className="flex items-center gap-2 px-4 flex-1">
                                         <div className="w-3 h-3 bg-danger rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
@@ -849,10 +937,25 @@ const Inbox: React.FC = () => {
                                         <Trash2 size={20} />
                                     </button>
                                     <button type="button" onClick={stopRecording} className="p-2.5 bg-gradient-to-br from-primary to-primary-hover text-white rounded-full shadow-md hover:shadow-lg transition-all scale-105">
+=======
+                                <div className="flex items-center gap-4 w-full bg-institutional-50 dark:bg-institutional-900 p-2 rounded-full border border-primary/20 animate-in fade-in duration-200 max-w-4xl mx-auto">
+                                    <div className="flex items-center gap-2 px-4 flex-1">
+                                        <div className="w-3 h-3 bg-danger rounded-full animate-pulse" />
+                                        <span className="text-sm font-mono font-bold text-danger">
+                                            {Math.floor(recordingTime / 60)}:{(recordingTime % 60).toString().padStart(2, '0')}
+                                        </span>
+                                        <span className="text-xs text-institutional-600 ml-2">/ 1:00</span>
+                                    </div>
+                                    <button type="button" onClick={cancelRecording} className="p-2 text-institutional-600 hover:text-danger transition-colors">
+                                        <Trash2 size={20} />
+                                    </button>
+                                    <button type="button" onClick={stopRecording} className="p-2 bg-primary text-institutional-50 rounded-full shadow-md hover:bg-primary-hover transition-all">
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                         <Send size={20} className={isRTL ? 'rotate-180' : ''} />
                                     </button>
                                 </div>
                             ) : (
+<<<<<<< HEAD
                                 <form onSubmit={handleSend} className="glass rounded-[2rem] p-1.5 flex flex-col gap-2 max-w-4xl mx-auto shadow-strong mb-2 transition-all focus-within:shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[var(--nav-border)]">
                                     {attachment && (
                                         <div className="flex items-center gap-2 px-4 py-2 mx-2 mt-2 bg-institutional-100 dark:bg-institutional-800 rounded-xl w-fit shadow-sm border border-border">
@@ -870,6 +973,25 @@ const Inbox: React.FC = () => {
                                         {user?.role === 'teacher' && !inputText && !attachment && (
                                             <button type="button" onClick={startRecording} className="p-2.5 text-muted hover:text-danger hover:bg-danger/10 rounded-full transition-all">
                                                 <Mic size={20} />
+=======
+                                <form onSubmit={handleSend} className="flex flex-col gap-2 max-w-4xl mx-auto">
+                                    {attachment && (
+                                        <div className="flex items-center gap-2 p-2 bg-institutional-100 dark:bg-institutional-800 rounded-xl w-fit">
+                                            <Paperclip size={16} className="text-primary" />
+                                            <span className="text-xs font-medium text-institutional-700 dark:text-institutional-200 truncate max-w-[200px]">{attachment.name}</span>
+                                            <button type="button" onClick={() => setAttachment(null)} className="p-1 hover:text-danger text-institutional-600"><X size={14} /></button>
+                                        </div>
+                                    )}
+                                    <div className="flex gap-2 items-center w-full">
+                                        <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" />
+                                        <button type="button" onClick={() => fileInputRef.current?.click()} disabled={isUploading} className="p-2 text-institutional-600 hover:text-primary transition-all disabled:opacity-50">
+                                            <Paperclip size={22} />
+                                        </button>
+                                        
+                                        {user?.role === 'teacher' && !inputText && !attachment && (
+                                            <button type="button" onClick={startRecording} className="p-2 text-institutional-600 hover:text-danger transition-all">
+                                                <Mic size={22} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                             </button>
                                         )}
 
@@ -877,19 +999,32 @@ const Inbox: React.FC = () => {
                                             <input 
                                                 value={inputText || (editingMessage?.text || '')}
                                                 onChange={handleInputChange}
+<<<<<<< HEAD
                                                 placeholder={t('inbox.secureTrans') || 'Type a message...'}
                                                 className="w-full bg-transparent p-2.5 px-4 text-[15px] outline-none text-text placeholder-muted focus:placeholder-primary/40 transition-colors"
                                             />
                                             <button type="button" className={`absolute ${isRTL ? 'left-2' : 'right-2'} p-2 text-muted hover:text-primary transition-all`}>
+=======
+                                                placeholder={t('inbox.secureTrans')}
+                                                className="w-full bg-institutional-50 dark:bg-institutional-900 border border-institutional-200 dark:border-institutional-800 focus:border-primary/50 p-2.5 px-4 rounded-full text-[15px] outline-none transition-all text-institutional-900 dark:text-institutional-50"
+                                            />
+                                            <button type="button" className={`absolute ${isRTL ? 'left-3' : 'right-3'} p-1.5 text-institutional-600 hover:text-primary transition-all`}>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                                 <Smile size={20} />
                                             </button>
                                         </div>
                                         <button 
                                             type="submit" 
                                             disabled={((!inputText.trim() && !attachment) && !editingMessage) || isUploading} 
+<<<<<<< HEAD
                                             className="p-3 bg-gradient-to-tr from-primary to-primary-hover text-white rounded-full shadow-md active:scale-95 transition-transform disabled:opacity-30 disabled:scale-100 disabled:shadow-none hover:shadow-glow ml-1"
                                         >
                                             <Send size={18} className={isRTL ? 'rotate-180' : ''} />
+=======
+                                            className="p-2.5 bg-primary text-institutional-50 rounded-full shadow-md active:scale-95 transition-all disabled:opacity-50 disabled:shadow-none hover:bg-primary-hover"
+                                        >
+                                            <Send size={20} className={isRTL ? 'rotate-180' : ''} />
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                         </button>
                                     </div>
                                 </form>

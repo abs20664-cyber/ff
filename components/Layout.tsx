@@ -5,7 +5,11 @@ import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { usePlatform } from '../contexts/PlatformContext';
 import Logo from './Logo';
+<<<<<<< HEAD
 import { collection, onSnapshot, query, where, doc, updateDoc, limit } from 'firebase/firestore';
+=======
+import { collection, onSnapshot, query, where, doc, updateDoc } from 'firebase/firestore';
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 import { db, collections } from '../services/firebase';
 import { Notification, AppLanguage } from '../types';
 import { 
@@ -54,10 +58,13 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isNotifOpen, setIsNotifOpen] = useState(false);
+<<<<<<< HEAD
     const [popupPos, setPopupPos] = useState(0);
     const langBtnRef = useRef<HTMLButtonElement>(null);
     const notifBtnRef = useRef<HTMLButtonElement>(null);
     const [unreadMessagesCount, setUnreadMessagesCount] = useState(0);
+=======
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
     const [toasts, setToasts] = useState<Notification[]>([]);
     
     const [audioEnabled, setAudioEnabled] = useState(false);
@@ -125,6 +132,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
         localStorage.setItem('edu_alg_theme', nextMode ? 'dark' : 'light');
     };
 
+<<<<<<< HEAD
     const handleLangClick = () => {
         if (!isLangOpen && langBtnRef.current) {
             const rect = langBtnRef.current.getBoundingClientRect();
@@ -148,11 +156,21 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
         if (!user) return;
         
         const qNotifs = query(
+=======
+    useEffect(() => {
+        if (!user) return;
+        
+        const q = query(
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
             collection(db, collections.notifications),
             where('userId', '==', user.id)
         );
 
+<<<<<<< HEAD
         const unsubNotifs = onSnapshot(qNotifs, (snap) => {
+=======
+        const unsub = onSnapshot(q, (snap) => {
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
             const allNotifs = snap.docs.map(d => ({ id: d.id, ...d.data() } as Notification));
             const sortedNotifs = allNotifs.sort((a, b) => {
                 const tA = a.timestamp?.toMillis?.() || a.timestamp?.seconds * 1000 || 0;
@@ -174,6 +192,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
             setNotifications(sortedNotifs.slice(0, 50));
         });
 
+<<<<<<< HEAD
         // Unread Messages Count
         const qMessages = query(collection(db, collections.messages), where('seen', '==', false), limit(500));
         const unsubMessages = onSnapshot(qMessages, (snap) => {
@@ -191,6 +210,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
             unsubNotifs();
             unsubMessages();
         };
+=======
+        return () => unsub();
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
     }, [user, audioEnabled]);
 
     const markAsRead = async (id: string) => {
@@ -282,11 +304,16 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
             onClick={enableAudio} 
         >
             {/* TOAST STACK */}
+<<<<<<< HEAD
             <div className={`fixed z-[500] flex flex-col gap-4 p-4 sm:p-6 transition-all duration-300 ${isMobile ? 'top-2 inset-x-0 mx-2' : 'top-6 end-6 w-[400px]'}`}>
+=======
+            <div className={`fixed z-[500] flex flex-col gap-4 p-6 transition-all duration-300 ${isMobile ? 'top-0 inset-x-0' : 'top-6 end-6 w-[400px]'}`}>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 {toasts.map((toast, idx) => (
                     <div 
                         key={toast.id} 
                         onClick={() => handleNotificationClick(toast)}
+<<<<<<< HEAD
                         className="glass p-5 rounded-2xl shadow-strong flex items-start gap-4 slide-up duration-500 cursor-pointer group hover:scale-[1.02] active:scale-95 transition-all relative overflow-hidden"
                         style={{ zIndex: 500 + idx }}
                     >
@@ -302,13 +329,31 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                                 <span className="text-[9px] font-bold text-muted">{t('common.justNow')}</span>
                             </div>
                             <p className="text-sm font-semibold text-text leading-tight">{toast.message}</p>
+=======
+                        className="glass p-5 rounded-2xl shadow-strong border border-white/20 dark:border-white/5 flex items-start gap-4 animate-in slide-in-from-right-10 fade-in duration-500 cursor-pointer group hover:scale-[1.02] active:scale-95 transition-all"
+                        style={{ zIndex: 500 + idx }}
+                    >
+                        <div className={`p-3 rounded-xl shrink-0 ${getColorForType(toast.type)} shadow-sm`}>
+                            {getIconForType(toast.type)}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-1">
+                                <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-50">{toast.title}</p>
+                                <span className="text-[9px] font-bold text-institutional-600">{t('common.justNow')}</span>
+                            </div>
+                            <p className="text-sm font-semibold text-institutional-900 dark:text-institutional-50 line-clamp-2 leading-tight">{toast.message}</p>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         </div>
                         <button 
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setToasts(prev => prev.filter(t => t.id !== toast.id));
                             }} 
+<<<<<<< HEAD
                             className="p-1.5 text-muted hover:text-text hover:bg-elevated rounded-lg transition-all"
+=======
+                            className="p-1.5 opacity-20 hover:opacity-100 hover:bg-institutional-200 dark:hover:bg-institutional-800 rounded-lg transition-all"
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         >
                             <X size={14} />
                         </button>
@@ -323,7 +368,11 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
+<<<<<<< HEAD
                     className={`shrink-0 z-40 sticky top-0 transition-all duration-500 border-b ${isMobile ? 'h-0 border-transparent' : 'h-24 bg-[var(--nav-bg)] backdrop-blur-xl border-[var(--nav-border)] flex items-center justify-between px-16'}`}
+=======
+                    className={`shrink-0 z-40 sticky top-0 transition-all duration-500 ${isMobile ? 'h-0' : 'h-24 bg-surface/80 dark:bg-institutional-950/80 backdrop-blur-xl border-b border-institutional-200 dark:border-institutional-800 flex items-center justify-between px-16'}`}
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 >
                     {!isMobile && (
                         <>
@@ -331,7 +380,11 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5 }}
+<<<<<<< HEAD
                                 className="flex items-center gap-5"
+=======
+                                className="flex items-center gap-4"
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             >
                                 <Logo size="sm" />
                                 <motion.h1 
@@ -339,7 +392,11 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                                     initial={{ opacity: 0, x: -10, scale: 0.98 }}
                                     animate={{ opacity: 1, x: 0, scale: 1 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
+<<<<<<< HEAD
                                     className="text-xl font-display font-bold tracking-tight text-text uppercase"
+=======
+                                    className="text-xl font-black tracking-tighter text-institutional-900 dark:text-institutional-50 uppercase"
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 >
                                     {getPageTitle()}
                                 </motion.h1>
@@ -347,6 +404,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
 
                             <div 
                                 onClick={() => onNavigate(`/profile/${user?.id}`)}
+<<<<<<< HEAD
                                 className="flex items-center gap-3 bg-surface p-2 pr-5 rounded-full border border-border shadow-sm cursor-pointer hover:border-primary/30 transition-all group"
                             >
                                 <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs ring-2 ring-white dark:ring-institutional-900 shadow-sm group-hover:scale-105 transition-transform">
@@ -355,12 +413,23 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                                 <div className="text-start">
                                     <p className="text-[11px] font-bold text-text uppercase tracking-widest leading-none mb-1">{user?.name.split(' ')[0]}</p>
                                     <p className="text-[9px] font-medium text-text-secondary uppercase tracking-wider leading-none">{user?.role}</p>
+=======
+                                className="flex items-center gap-3 bg-institutional-100 dark:bg-institutional-900 p-2 pr-4 rounded-2xl border border-institutional-200 dark:border-institutional-800 cursor-pointer hover:bg-institutional-200 dark:hover:bg-institutional-800 transition-colors"
+                            >
+                                <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-institutional-50 font-black text-[11px] uppercase shadow-lg shadow-primary/20">
+                                    {user?.name.charAt(0)}
+                                </div>
+                                <div className="text-start">
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-institutional-900 dark:text-institutional-50">{user?.name.split(' ')[0]}</p>
+                                    <p className="text-[8px] font-bold uppercase tracking-widest text-institutional-600 leading-none mt-0.5">{user?.role}</p>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 </div>
                             </div>
                         </>
                     )}
                 </motion.header>
 
+<<<<<<< HEAD
                 {currentPath === '/inbox' ? (
                     <div className="flex-1 relative overflow-hidden">
                         {children}
@@ -472,6 +541,79 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigat
                             </button>
                         </nav>
                 </div>
+=======
+                <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-12 relative scroll-smooth pb-28 pt-20">
+                    <div className="max-w-[1400px] mx-auto">
+                        {children}
+                    </div>
+                </div>
+
+                {/* BOTTOM NAVIGATION */}
+            <div className="fixed bottom-4 inset-x-0 flex justify-center z-50 px-2 pointer-events-none">
+                <nav className="bg-surface/90 dark:bg-institutional-900/90 backdrop-blur-2xl border border-institutional-200 dark:border-institutional-800 flex items-center overflow-x-auto scroll-smooth scrollbar-hide p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-[2rem] gap-1 pointer-events-auto max-w-full">
+                    {routes.map((route) => {
+                        const Icon = route.icon;
+                        const isActive = currentPath === route.path;
+                        return (
+                            <button 
+                                key={route.path}
+                                onClick={() => { enableAudio(); onNavigate(route.path); }}
+                                className={`flex-shrink-0 flex flex-col items-center gap-1 p-2.5 rounded-[1.5rem] transition-all min-w-[60px] relative ${isActive ? 'text-primary bg-primary/5 scale-105' : 'text-institutional-600 hover:text-institutional-600 dark:hover:text-institutional-200'}`}
+                            >
+                                <Icon size={18} strokeWidth={isActive ? 3 : 2} />
+                                <span className={`text-[7px] font-black uppercase tracking-[0.1em] transition-all ${isActive ? 'opacity-100' : 'opacity-60'}`}>{route.label}</span>
+                                {isActive && <div className="absolute bottom-1 w-1 h-1 bg-primary rounded-full" />}
+                            </button>
+                        );
+                    })}
+                    <div className="flex-shrink-0 w-px h-8 bg-institutional-200 dark:bg-institutional-800 mx-1" />
+                    <button onClick={toggleTheme} className="flex-shrink-0 p-3 text-institutional-600 hover:text-primary transition-all">
+                        {isDarkMode ? <Sun size={18} className="text-warning" /> : <Moon size={18} className="text-primary" />}
+                    </button>
+                    <div onClick={() => setIsLangOpen(!isLangOpen)} className="flex-shrink-0 p-3 text-institutional-600 hover:text-primary transition-all relative cursor-pointer" role="button" tabIndex={0}>
+                        <Languages size={18} />
+                        {isLangOpen && (
+                            <div className={`absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-48 bg-surface dark:bg-institutional-900 border border-institutional-200 dark:border-institutional-800 rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 z-[60] p-2`}>
+                                {languages.map(l => (
+                                    <button 
+                                        key={l.code} 
+                                        onClick={(e) => { e.stopPropagation(); setLanguage(l.code); setIsLangOpen(false); }}
+                                        className={`w-full flex flex-shrink-0 items-center gap-4 px-4 py-3.5 rounded-2xl hover:bg-institutional-100 dark:hover:bg-institutional-800 transition-all text-xs font-black uppercase ${language === l.code ? 'text-primary bg-primary/5' : 'text-institutional-600'}`}
+                                    >
+                                        <span className="text-xl">{l.flag}</span>
+                                        <span>{l.label}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <div onClick={() => setIsNotifOpen(!isNotifOpen)} className="flex-shrink-0 p-3 text-institutional-600 hover:text-primary transition-all relative cursor-pointer" role="button" tabIndex={0}>
+                        <div className="relative">
+                            <Bell size={18} />
+                            {notifications.length > 0 && <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-ping" />}
+                        </div>
+                        {isNotifOpen && (
+                            <div className={`absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-64 bg-surface dark:bg-institutional-900 border border-institutional-200 dark:border-institutional-800 rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 z-[60] p-4`}>
+                                <h3 className="text-xs font-black uppercase text-institutional-900 dark:text-institutional-50 mb-3">Notifications</h3>
+                                <div className="space-y-2 max-h-60 overflow-y-auto">
+                                    {notifications.length > 0 ? (
+                                        notifications.map(n => (
+                                            <div key={n.id} className="text-xs text-institutional-600 p-2 bg-institutional-100 dark:bg-institutional-800 rounded-xl">
+                                                {n.message}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-xs text-institutional-600">No new notifications.</p>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <button onClick={logout} className="flex-shrink-0 p-3 text-danger hover:text-danger-hover transition-all">
+                        <Power size={18} />
+                    </button>
+                </nav>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
             </div>
             </main>
         </div>

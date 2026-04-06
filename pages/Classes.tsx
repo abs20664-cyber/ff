@@ -210,12 +210,21 @@ const Classes: React.FC<ClassesProps> = ({ onNavigate }) => {
             </div>
 
             {isModalOpen && (
+<<<<<<< HEAD
                 <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-4 md:p-6 animate-in fade-in duration-300">
                     <div className="bg-sidebar rounded-[2rem] md:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-2xl w-full p-6 md:p-12 relative overflow-hidden border border-border max-h-[90vh] overflow-y-auto scroll-hide">
                         <button onClick={() => setIsModalOpen(false)} className={`absolute top-6 md:top-10 ${isRTL ? 'left-6 md:left-10' : 'right-6 md:right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
                         
                         <div className="text-start mb-8 md:mb-12 pr-12">
                             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text">{t('hub.config')}</h3>
+=======
+                <div className="fixed inset-0 z-[200] bg-institutional-950/80 backdrop-blur-xl flex items-center justify-center p-6 animate-in fade-in duration-300">
+                    <div className="bg-sidebar rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.3)] max-w-2xl w-full p-12 md:p-16 relative overflow-hidden border border-border max-h-[90vh] overflow-y-auto scroll-hide">
+                        <button onClick={() => setIsModalOpen(false)} className={`absolute top-10 ${isRTL ? 'left-10' : 'right-10'} p-3 bg-background rounded-2xl text-text-secondary hover:text-danger transition-all border border-border`}><X size={24} /></button>
+                        
+                        <div className="text-start mb-12">
+                            <h3 className="text-3xl font-black uppercase tracking-tight text-text">{t('hub.config')}</h3>
+>>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <p className="text-xs font-black text-text-secondary uppercase tracking-widest mt-2">Institutional Session Parameterization</p>
                         </div>
 
