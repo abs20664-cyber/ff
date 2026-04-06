@@ -304,11 +304,7 @@ const AdminRegistry: React.FC = () => {
                         <div>{t('admin.systemId')}</div>
                         <div className="text-end">{t('admin.manage')}</div>
                     </div>
-<<<<<<< HEAD
                     {[...Array(5)].map((_, i) => <div key={i} className="shimmer h-[81px] w-full border-b border-border/50" />)}
-=======
-                    {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-[81px] w-full" />)}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                 </div>
             );
         }
@@ -317,7 +313,6 @@ const AdminRegistry: React.FC = () => {
             <div className="space-y-6">
                 {/* Dashboard Stats */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-<<<<<<< HEAD
                     <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="stat-card col-span-1 sm:col-span-2 lg:col-span-1">
                             <div className="flex items-center justify-between mb-2">
@@ -359,62 +354,14 @@ const AdminRegistry: React.FC = () => {
                     <div className="card p-6 flex flex-col items-center">
                         <h3 className="section-title self-start mb-0">Role Distribution</h3>
                         <div className="flex-1 w-full min-h-[160px] mx-auto">
-=======
-                    <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-                        <div className="bg-surface dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-soft flex flex-col justify-between">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-[10px] font-black uppercase tracking-widest text-institutional-600">Total Users</h3>
-                                <div className="w-8 h-8 rounded-full bg-institutional-200 dark:bg-institutional-900 flex items-center justify-center text-institutional-600">
-                                    <Users size={16} />
-                                </div>
-                            </div>
-                            <p className="text-3xl font-black text-institutional-900 dark:text-institutional-50">{stats.total}</p>
-                        </div>
-                        <div className="bg-institutional-50 dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-sm flex flex-col justify-between">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-[10px] font-black uppercase tracking-widest text-institutional-600">Students</h3>
-                                <div className="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center text-success">
-                                    <GraduationCap size={16} />
-                                </div>
-                            </div>
-                            <p className="text-3xl font-black text-institutional-900 dark:text-institutional-50">{stats.students}</p>
-                        </div>
-                        <div className="bg-institutional-50 dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-sm flex flex-col justify-between">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-[10px] font-black uppercase tracking-widest text-institutional-600">Teachers</h3>
-                                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                    <Shield size={16} />
-                                </div>
-                            </div>
-                            <p className="text-3xl font-black text-institutional-900 dark:text-institutional-50">{stats.teachers}</p>
-                        </div>
-                        <div className="bg-institutional-50 dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-sm flex flex-col justify-between">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-[10px] font-black uppercase tracking-widest text-institutional-600">Staff</h3>
-                                <div className="w-8 h-8 rounded-full bg-danger/20 flex items-center justify-center text-danger">
-                                    <ShieldAlert size={16} />
-                                </div>
-                            </div>
-                            <p className="text-3xl font-black text-institutional-900 dark:text-institutional-50">{stats.staff}</p>
-                        </div>
-                    </div>
-                    <div className="bg-surface dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-soft flex flex-col">
-                        <h3 className="text-[10px] font-black uppercase tracking-widest text-institutional-600 mb-4">Role Distribution</h3>
-                        <div className="flex-1 min-h-[200px]">
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <ResponsiveContainer width="100%" height="100%">
                                 <PieChart>
                                     <Pie
                                         data={pieData}
                                         cx="50%"
                                         cy="50%"
-<<<<<<< HEAD
                                         innerRadius={50}
                                         outerRadius={70}
-=======
-                                        innerRadius={60}
-                                        outerRadius={80}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                         paddingAngle={5}
                                         dataKey="value"
                                     >
@@ -423,17 +370,10 @@ const AdminRegistry: React.FC = () => {
                                         ))}
                                     </Pie>
                                     <RechartsTooltip 
-<<<<<<< HEAD
                                         contentStyle={{ backgroundColor: 'var(--bg-elevated)', borderRadius: '1rem', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-sm)' }}
                                         itemStyle={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--text-primary)' }}
                                     />
                                     <Legend iconType="circle" wrapperStyle={{ fontSize: '11px', fontWeight: 'bold' }} />
-=======
-                                        contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
-                                        itemStyle={{ fontSize: '12px', fontWeight: 'bold' }}
-                                    />
-                                    <Legend iconType="circle" wrapperStyle={{ fontSize: '10px', fontWeight: 'bold' }} />
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -441,49 +381,28 @@ const AdminRegistry: React.FC = () => {
                 </div>
 
                 {/* Filters and Search */}
-<<<<<<< HEAD
                 <div className="card p-4 flex flex-col md:flex-row gap-4 justify-between items-center bg-surface">
                     <div className="input-wrapper w-full md:w-96">
                         <Search size={18} className={`input-icon ${isRTL ? 'right-4' : 'left-4'}`} />
-=======
-                <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-surface dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-4 rounded-[1.5rem] shadow-soft">
-                    <div className="relative w-full md:w-96">
-                        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-institutional-600" />
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         <input 
                             type="text" 
                             placeholder="Search by name, email, or ID..." 
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-<<<<<<< HEAD
                             className={`input-field bg-body ${isRTL ? 'pr-11' : 'pl-11'}`}
                         />
                     </div>
                     <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scroll-hide">
                         <Filter size={16} className="text-muted shrink-0" />
-=======
-                            className="w-full bg-institutional-50 dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 rounded-xl py-3 pl-12 pr-4 text-sm font-bold text-institutional-900 dark:text-institutional-50 focus:outline-none focus:border-primary transition-colors"
-                        />
-                    </div>
-                    <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
-                        <Filter size={16} className="text-institutional-600 shrink-0" />
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         <div className="flex gap-2">
                             {(['all', 'student', 'teacher', 'admin', 'economic'] as const).map(role => (
                                 <button
                                     key={role}
                                     onClick={() => setRoleFilter(role)}
-<<<<<<< HEAD
                                     className={`px-4 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-widest whitespace-nowrap transition-all shadow-sm ${
                                         roleFilter === role 
                                             ? 'bg-text text-body' 
                                             : 'bg-elevated text-text-secondary hover:text-text border border-border hover:border-text/30'
-=======
-                                    className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-colors ${
-                                        roleFilter === role 
-                                            ? 'bg-institutional-900 dark:bg-institutional-50 text-institutional-50 dark:text-institutional-900' 
-                                            : 'bg-institutional-50 dark:bg-institutional-950 text-institutional-600 hover:bg-institutional-100 dark:hover:bg-institutional-800'
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                                     }`}
                                 >
                                     {role === 'all' ? 'All Roles' : t(`roles.${role}`)}
@@ -494,21 +413,14 @@ const AdminRegistry: React.FC = () => {
                 </div>
 
                 {/* Subject Management */}
-<<<<<<< HEAD
                 <div className="card p-6">
                     <h3 className="section-title">{t('admin.manageSubjects')}</h3>
                     <div className="flex gap-3 mb-5">
-=======
-                <div className="bg-surface dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 p-6 rounded-[1.5rem] shadow-soft">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-institutional-600 mb-4">{t('admin.manageSubjects')}</h3>
-                    <div className="flex gap-2 mb-4">
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         <input 
                             type="text" 
                             value={newSubject}
                             onChange={(e) => setNewSubject(e.target.value)}
                             placeholder="New subject name..."
-<<<<<<< HEAD
                             className="input-field max-w-sm"
                         />
                         <button onClick={addSubject} className="btn-primary px-6 rounded-xl shrink-0"><Plus size={16} /> Add</button>
@@ -518,17 +430,6 @@ const AdminRegistry: React.FC = () => {
                             <div key={s.id} className="inline-flex items-center gap-2 bg-elevated border border-border pl-3 pr-1 py-1 rounded-full text-xs font-semibold text-text shadow-sm">
                                 {s.name}
                                 <button onClick={() => deleteSubject(s.id)} className="w-6 h-6 rounded-full flex items-center justify-center text-muted hover:text-danger hover:bg-danger/10 transition-colors"><X size={14} /></button>
-=======
-                            className="flex-1 bg-institutional-50 dark:bg-institutional-950 border border-institutional-200 dark:border-institutional-800 rounded-xl py-3 px-4 text-sm font-bold text-institutional-900 dark:text-institutional-50 focus:outline-none focus:border-primary transition-colors"
-                        />
-                        <button onClick={addSubject} className="bg-primary text-institutional-50 px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest"><Plus size={16} /></button>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                        {subjects.map(s => (
-                            <div key={s.id} className="flex items-center gap-2 bg-institutional-100 dark:bg-institutional-800 px-3 py-1 rounded-full text-xs font-bold">
-                                {s.name}
-                                <button onClick={() => deleteSubject(s.id)} className="text-danger"><X size={14} /></button>
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             </div>
                         ))}
                     </div>
@@ -537,28 +438,17 @@ const AdminRegistry: React.FC = () => {
                 {/* Registry List */}
                 {isMobile ? (
                     <List
-<<<<<<< HEAD
                         height={window.innerHeight - 400}
                         itemCount={filteredUsers.length}
                         itemSize={165}
-=======
-                        height={window.innerHeight - 400} // Adjust height as needed
-                        itemCount={filteredUsers.length}
-                        itemSize={180} // Approximate height of a card
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                         width="100%"
                         itemData={itemData}
                     >
                         {UserRow}
                     </List>
                 ) : (
-<<<<<<< HEAD
                     <div className="card overflow-hidden shadow-strong">
                         <div className="grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_140px] p-5 lg:px-6 border-b border-border bg-elevated/80 text-[10px] font-bold uppercase tracking-widest text-muted text-start">
-=======
-                    <div className="academic-card rounded-[1.5rem] overflow-hidden shadow-strong">
-                        <div className={`grid grid-cols-[1.5fr_1.5fr_1fr_0.5fr_100px] p-6 border-b border-institutional-200 dark:border-institutional-800 bg-institutional-100 dark:bg-institutional-950 font-black text-[10px] uppercase tracking-widest text-institutional-600 text-start`}>
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             <div>{t('admin.legalName')}</div>
                             <div>{t('admin.email')}</div>
                             <div>{t('admin.permissions')}</div>
@@ -567,35 +457,21 @@ const AdminRegistry: React.FC = () => {
                         </div>
                         {filteredUsers.length > 0 ? (
                             <List
-<<<<<<< HEAD
                                 height={Math.min(filteredUsers.length * 70, window.innerHeight - 350)}
                                 itemCount={filteredUsers.length}
                                 itemSize={70}
                                 width="100%"
                                 itemData={itemData}
                                 className="no-scrollbar"
-=======
-                                height={Math.min(filteredUsers.length * 81, window.innerHeight - 400)} // Dynamic height
-                                itemCount={filteredUsers.length}
-                                itemSize={81} // Height of a row
-                                width="100%"
-                                itemData={itemData}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             >
                                 {UserRow}
                             </List>
                         ) : (
-<<<<<<< HEAD
                             <div className="p-16 text-center text-muted flex flex-col items-center gap-4 bg-surface">
                                 <div className="w-16 h-16 rounded-full bg-elevated border border-border flex items-center justify-center shadow-sm">
                                     <Search size={24} className="opacity-50" />
                                 </div>
                                 <p className="text-sm font-semibold">{t('admin.registryEmpty')}</p>
-=======
-                            <div className="p-12 text-center text-institutional-600 text-xs font-black uppercase tracking-widest flex flex-col items-center gap-4">
-                                <Search size={32} className="opacity-20" />
-                                {t('admin.registryEmpty')}
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
                             </div>
                         )}
                     </div>
