@@ -1,47 +1,23 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
-/* ============================================================
-   DESIGN TOKENS — Light Mode
-   ============================================================ */
-:root {
-  /* Eye-soothing, muted slate light mode */
-  --bg-body: #E4E7EB; /* Deep slate background */
-  --bg-surface: #EEF0F3; /* Cards are slightly lighter, avoiding pure white */
-  --bg-elevated: #F5F7F9; /* Elevated panels like dropdowns */
-  
-  /* Text colors */
-  --text-primary: #202428; /* Softened charcoal black */
-  --text-secondary: #565D65; /* Mid-tone slate grey */
-  --border-color: #D3D8E0; /* Visible bounding box */
-  --muted: #9199A3;
-
-  /* Primary — Algeria Green, slightly softer for light mode */
-  --primary: #007A3E;
-  --primary-hover: #006030;
-  --primary-light: rgba(0, 122, 62, 0.08);
-  --primary-ring: rgba(0, 122, 62, 0.2);
-  --primary-foreground: #ffffff;
-
-  /* Institutional Scale */
-=======
 :root {
   /* Light Theme - Clean & Professional */
   --bg-body: #f8fafc; /* slate-50 - Main Background (Page) */
   --bg-surface: #ffffff; /* pure white - Card/Surface Background */
+  --bg-elevated: #f1f5f9; /* slate-100 */
   --text-primary: #0f172a; /* slate-900 */
-  --text-secondary: #475569; /* slate-600 - Darkened for better contrast */
+  --text-secondary: #475569; /* slate-600 */
   --border-color: #e2e8f0; /* slate-200 */
-  --muted: #94a3b8; /* slate-400 - Darkened for better contrast */
+  --muted: #94a3b8; /* slate-400 */
 
-  /* Primary Brand Colors - Light Mode */
+  /* Primary Brand Colors - Light Mode (Algeria Green inspired) */
   --primary: #006633;
   --primary-hover: #00552b;
   --primary-light: rgba(0, 102, 51, 0.1);
+  --primary-ring: rgba(0, 102, 51, 0.2);
   --primary-foreground: #ffffff;
 
   /* Institutional Palette - Consistent Slate Scale */
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --inst-50: #f8fafc;
   --inst-100: #f1f5f9;
   --inst-200: #e2e8f0;
@@ -54,107 +30,56 @@
   --inst-900: #0f172a;
   --inst-950: #020617;
 
-<<<<<<< HEAD
-  /* Shadows */
-  --shadow-xs:   0 1px 2px 0 rgba(0,0,0,0.04);
-  --shadow-sm:   0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.04);
-  --shadow-soft-val: 0 4px 20px -2px rgba(0,0,0,0.07), 0 2px 8px -2px rgba(0,0,0,0.04);
-  --shadow-strong-val: 0 20px 40px -8px rgba(0,0,0,0.14), 0 8px 16px -4px rgba(0,0,0,0.06);
+  /* Shadows - Light Mode */
+  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.06);
+  --shadow-soft-val: 0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-strong-val: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-glow: 0 0 24px -4px rgba(0,102,51,0.25);
 
   /* Nav */
-  --nav-bg: rgba(238, 240, 243, 0.92); /* Frosted slate */
-  --nav-border: rgba(211, 216, 224, 0.8);
-}
-
-/* ============================================================
-   DESIGN TOKENS — Dark Mode
-   ============================================================ */
-.dark {
-  --bg-body: #080e17;
-  --bg-surface: #0f1923;
-  --bg-elevated: #162030;
-  --text-primary: #f0f6ff;
-  --text-secondary: #8fa4bf;
-  --border-color: #1e2d3d;
-  --muted: #4a6280;
-
-  /* Primary — brighter emerald for dark mode */
-  --primary: #10b981;
-  --primary-hover: #059669;
-  --primary-light: rgba(16, 185, 129, 0.12);
-  --primary-ring: rgba(16, 185, 129, 0.28);
-  --primary-foreground: #ffffff;
-
-  /* Shadows — deeper */
-  --shadow-xs:   0 1px 2px 0 rgba(0,0,0,0.2);
-  --shadow-sm:   0 1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -1px rgba(0,0,0,0.2);
-  --shadow-soft-val: 0 4px 24px -2px rgba(0,0,0,0.4), 0 2px 8px -2px rgba(0,0,0,0.3);
-  --shadow-strong-val: 0 24px 48px -8px rgba(0,0,0,0.6), 0 10px 20px -4px rgba(0,0,0,0.4);
-  --shadow-glow: 0 0 28px -4px rgba(16,185,129,0.3);
-
-  /* Nav */
-  --nav-bg: rgba(15,25,35,0.92);
-  --nav-border: rgba(30,45,61,0.8);
-}
-
-/* ============================================================
-   THEME MAPPING (Tailwind v4 @theme)
-   ============================================================ */
-@theme {
-  --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-=======
-  /* Shadows - Light Mode */
-  --shadow-soft-val: 0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-  --shadow-strong-val: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --nav-bg: rgba(248, 250, 252, 0.92);
+  --nav-border: rgba(226, 232, 240, 0.8);
 }
 
 .dark {
   /* Dark Theme - Deep & Modern */
-  --bg-body: #020617; /* slate-950 - Darker background */
-  --bg-surface: #0f172a; /* slate-900 - Darker surface */
+  --bg-body: #020617; /* slate-950 */
+  --bg-surface: #0f172a; /* slate-900 */
+  --bg-elevated: #1e293b; /* slate-800 */
   --text-primary: #f8fafc; /* slate-50 */
   --text-secondary: #94a3b8; /* slate-400 */
   --border-color: #1e293b; /* slate-800 */
   --muted: #475569; /* slate-600 */
 
-  /* Primary Brand Colors - Dark Mode (Brighter for contrast) */
+  /* Primary Brand Colors - Dark Mode (Brighter Emerald for contrast) */
   --primary: #10b981; /* emerald-500 */
   --primary-hover: #059669; /* emerald-600 */
   --primary-light: rgba(16, 185, 129, 0.15);
+  --primary-ring: rgba(16, 185, 129, 0.28);
   --primary-foreground: #ffffff;
 
-  /* Institutional Palette - Keep consistent so dark:* classes work correctly */
-  --inst-50: #f8fafc;
-  --inst-100: #f1f5f9;
-  --inst-200: #e2e8f0;
-  --inst-300: #cbd5e1;
-  --inst-400: #94a3b8;
-  --inst-500: #64748b;
-  --inst-600: #475569;
-  --inst-700: #334155;
-  --inst-800: #1e293b;
-  --inst-900: #0f172a;
-  --inst-950: #020617;
-
-  /* Shadows - Dark Mode (Deeper and softer) */
+  /* Shadows - Dark Mode */
+  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.2);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -1px rgba(0,0,0,0.2);
   --shadow-soft-val: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
   --shadow-strong-val: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 28px -4px rgba(16,185,129,0.3);
+
+  /* Nav */
+  --nav-bg: rgba(15, 23, 42, 0.92);
+  --nav-border: rgba(30, 41, 59, 0.8);
 }
 
 @theme {
   --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+  --font-display: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-arabic: "IBM Plex Sans Arabic", sans-serif;
 
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-light: var(--primary-light);
-<<<<<<< HEAD
   --color-primary-ring: var(--primary-ring);
-=======
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-primary-foreground: var(--primary-foreground);
 
   --color-algeria-green: #006633;
@@ -162,24 +87,16 @@
   --color-algeria-white: #FFFFFF;
 
   --color-success: #10b981;
-<<<<<<< HEAD
-  --color-success-light: rgba(16,185,129,0.12);
+  --color-success-light: rgba(16, 185, 129, 0.12);
   --color-warning: #f59e0b;
-  --color-warning-light: rgba(245,158,11,0.12);
+  --color-warning-light: rgba(245, 158, 11, 0.12);
   --color-danger: #f43f5e;
-  --color-danger-light: rgba(244,63,94,0.12);
+  --color-danger-light: rgba(244, 63, 94, 0.12);
   --color-info: #3b82f6;
-  --color-info-light: rgba(59,130,246,0.12);
+  --color-info-light: rgba(59, 130, 246, 0.12);
 
   --color-surface: var(--bg-surface);
   --color-elevated: var(--bg-elevated);
-=======
-  --color-warning: #f59e0b;
-  --color-danger: #f43f5e;
-
-  /* Semantic Colors mapped to variables */
-  --color-surface: var(--bg-surface);
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-body: var(--bg-body);
   --color-background: var(--bg-body);
   --color-sidebar: var(--bg-surface);
@@ -190,13 +107,9 @@
 
   --shadow-soft: var(--shadow-soft-val);
   --shadow-strong: var(--shadow-strong-val);
-<<<<<<< HEAD
   --shadow-glow: var(--shadow-glow);
 
-=======
-
   /* Institutional Palette */
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   --color-institutional-50: var(--inst-50);
   --color-institutional-100: var(--inst-100);
   --color-institutional-200: var(--inst-200);
@@ -210,10 +123,6 @@
   --color-institutional-950: var(--inst-950);
 }
 
-<<<<<<< HEAD
-/* ============================================================
-   BASE STYLES
-   ============================================================ */
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -227,20 +136,15 @@
   }
 
   body {
-    background-color: var(--bg-body);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply bg-body text-text font-sans antialiased;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     min-height: 100dvh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-    letter-spacing: -0.025em;
-    font-weight: 700;
+    @apply tracking-tight font-bold;
+    font-family: var(--font-display);
   }
 
   code, pre { @apply font-mono; }
@@ -259,9 +163,9 @@
     border: 1px solid transparent;
     background-clip: padding-box;
   }
-  .dark ::-webkit-scrollbar-thumb { @apply bg-institutional-700; }
+  .dark ::-webkit-scrollbar-thumb { @apply bg-institutional-800; }
   ::-webkit-scrollbar-thumb:hover { @apply bg-institutional-300; }
-  .dark ::-webkit-scrollbar-thumb:hover { @apply bg-institutional-600; }
+  .dark ::-webkit-scrollbar-thumb:hover { @apply bg-institutional-700; }
 
   /* Focus ring */
   :focus-visible {
@@ -271,12 +175,12 @@
   }
 }
 
-/* ============================================================
-   COMPONENT UTILITIES
-   ============================================================ */
 @layer components {
-
   /* ── Cards ── */
+  .academic-card {
+    @apply bg-surface border border-border rounded-2xl shadow-soft transition-all duration-300 hover:shadow-strong hover:-translate-y-0.5;
+  }
+
   .card {
     @apply bg-surface border border-border rounded-2xl;
     box-shadow: var(--shadow-soft-val);
@@ -286,11 +190,6 @@
     box-shadow: var(--shadow-strong-val);
     transform: translateY(-2px);
     @apply border-primary/20;
-  }
-
-  .card-static {
-    @apply bg-surface border border-border rounded-2xl;
-    box-shadow: var(--shadow-soft-val);
   }
 
   .stat-card {
@@ -306,21 +205,10 @@
     background: linear-gradient(to bottom, var(--primary), transparent);
     border-radius: 9999px 0 0 9999px;
   }
-  .stat-card:hover {
-    box-shadow: var(--shadow-strong-val);
-    transform: translateY(-1px);
-  }
 
   /* Glass effect */
   .glass {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    @apply border border-white/30;
-  }
-  .dark .glass {
-    background: rgba(15,25,35,0.80);
-    @apply border-white/8;
+    @apply bg-surface/80 backdrop-blur-xl border border-white/10 dark:border-white/5;
   }
 
   /* ── Buttons ── */
@@ -329,7 +217,6 @@
     background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 70%, #000) 100%);
     box-shadow: 0 4px 14px -2px var(--primary-ring), 0 2px 6px -1px rgba(0,0,0,0.1);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 0.01em;
   }
   .btn-primary:hover {
     transform: translateY(-1px);
@@ -337,26 +224,6 @@
     filter: brightness(1.05);
   }
   .btn-primary:active { transform: scale(0.97); }
-  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm text-text-secondary border border-border;
-    transition: all 0.2s ease;
-  }
-  .btn-ghost:hover {
-    background: var(--bg-elevated);
-    color: var(--text-primary);
-    border-color: rgba(0, 102, 51, 0.3);
-  }
-
-  .btn-danger {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm text-white;
-    background: linear-gradient(135deg, #f43f5e, #e11d48);
-    box-shadow: 0 4px 14px -2px rgba(244,63,94,0.3);
-    transition: all 0.2s ease;
-  }
-  .btn-danger:hover { transform: translateY(-1px); filter: brightness(1.05); }
-  .btn-danger:active { transform: scale(0.97); }
 
   /* ── Inputs ── */
   .input-field {
@@ -364,107 +231,34 @@
     transition: all 0.2s ease;
     box-shadow: var(--shadow-xs);
   }
-  .input-field::placeholder { 
-    color: var(--muted);
-  }
   .input-field:focus {
     border-color: var(--primary);
     --tw-ring-color: var(--primary-ring);
     --tw-ring-shadow: 0 0 0 3px var(--primary-ring);
     box-shadow: var(--tw-ring-shadow), var(--shadow-xs);
   }
-  .dark .input-field {
-    background: var(--bg-elevated);
-  }
 
-  .input-wrapper {
-    @apply relative;
-  }
+  .input-wrapper { @apply relative; }
   .input-icon {
-    @apply absolute top-1/2 -translate-y-1/2 text-muted pointer-events-none;
-    @apply transition-colors duration-200;
+    @apply absolute top-1/2 -translate-y-1/2 text-muted pointer-events-none transition-colors duration-200;
   }
-  .input-wrapper:focus-within .input-icon {
-    color: var(--primary);
-  }
+  .input-wrapper:focus-within .input-icon { color: var(--primary); }
 
   /* ── Badges ── */
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide;
   }
-  .badge-primary { 
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[var(--primary-light)] text-primary; 
-  }
-  .badge-success { 
-    background: var(--color-success-light); 
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-success; 
-  }
-  .badge-warning { 
-    background: var(--color-warning-light); 
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-warning; 
-  }
-  .badge-danger  { 
-    background: var(--color-danger-light);  
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide text-danger; 
-  }
-  .badge-muted   { 
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-elevated text-text-secondary border border-border; 
-  }
-
-  /* ── Section titles ── */
-  .section-title {
-    font-family: "Outfit", sans-serif;
-    @apply text-xs font-bold uppercase tracking-[0.14em] text-muted mb-3;
-  }
+  .badge-primary { @apply badge bg-[var(--primary-light)] text-primary; }
+  .badge-success { @apply badge bg-[var(--color-success-light)] text-success; }
 
   /* ── Live glow ── */
-=======
-@layer base {
-  body {
-    @apply bg-body text-text font-sans antialiased;
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight font-bold;
-  }
-
-  code, pre {
-    @apply font-mono;
-  }
-
-  /* RTL TYPOGRAPHY */
-  [dir="rtl"] { 
-    font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", sans-serif !important; 
-  }
-  [dir="rtl"] * { 
-    letter-spacing: normal !important; 
-  }
-
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
-  ::-webkit-scrollbar-thumb { @apply bg-institutional-300 rounded-full; }
-  .dark ::-webkit-scrollbar-thumb { @apply bg-institutional-800; }
-}
-
-@layer components {
-  .academic-card {
-    @apply bg-surface border border-border rounded-2xl shadow-soft transition-all duration-300 hover:shadow-strong hover:-translate-y-0.5;
-  }
-
-  .glass {
-    @apply bg-surface/80 backdrop-blur-xl border border-white/10 dark:border-white/5;
-  }
-
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
   .live-now-glow {
     @apply border-success bg-success/5 relative;
   }
   .live-now-glow::after {
     content: '';
-<<<<<<< HEAD
-    @apply absolute -inset-px rounded-[inherit] border-2 border-success opacity-30;
+    @apply absolute -inset-0.5 rounded-[inherit] border-2 border-success opacity-40 animate-pulse;
     pointer-events: none;
-    animation: glow-pulse 2s ease-in-out infinite;
   }
 
   /* ── Nav item ── */
@@ -473,103 +267,29 @@
     padding: 8px 12px;
     min-width: 52px;
   }
-  .nav-item.active {
-    color: var(--primary);
-    background: var(--primary-light);
-  }
-  .nav-item:not(.active) {
-    color: var(--muted);
-  }
-  .nav-item:not(.active):hover {
-    color: var(--text-primary);
-  }
+  .nav-item.active { color: var(--primary); background: var(--primary-light); }
+  .nav-item:not(.active) { color: var(--muted); }
+  .nav-item:not(.active):hover { color: var(--text-primary); }
 
   /* ── Animations ── */
-  .fade-in { animation: fadeIn 0.35s ease-out both; }
+  .fade-in { animation: fadeIn 0.4s ease-out both; }
   .slide-up { animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .animate-float { animation: float 6s ease-in-out infinite; }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
-  }
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.3; }
-    50%       { opacity: 0.7; }
-  }
-  @keyframes shimmer {
-    0%   { background-position: -600px 0; }
-    100% { background-position: 600px 0; }
-  }
-  @keyframes blob-drift {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33%      { transform: translate(30px,-20px) scale(1.04); }
-    66%      { transform: translate(-20px,15px) scale(0.97); }
-  }
-  @keyframes orb-rotate {
-    0%   { transform: rotate(0deg) scale(1); }
-    50%  { transform: rotate(180deg) scale(1.1); }
-    100% { transform: rotate(360deg) scale(1); }
-  }
-  @keyframes ping-slow {
-    0%   { transform: scale(1); opacity: 0.8; }
-    70%  { transform: scale(2); opacity: 0; }
-    100% { transform: scale(2); opacity: 0; }
-  }
-
-  /* ── Shimmer skeleton ── */
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      var(--inst-100) 25%,
-      var(--inst-200) 50%,
-      var(--inst-100) 75%
-    );
-    background-size: 600px 100%;
-    animation: shimmer 1.6s ease-in-out infinite;
-  }
-  .dark .shimmer {
-    background: linear-gradient(
-      90deg,
-      var(--inst-800) 25%,
-      var(--inst-700) 50%,
-      var(--inst-800) 75%
-    );
-    background-size: 600px 100%;
-    animation: shimmer 1.6s ease-in-out infinite;
-  }
-
-  /* ── Scroll helpers ── */
-  .scroll-hide::-webkit-scrollbar { display: none; }
-  .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-=======
-    @apply absolute -inset-0.5 rounded-[inherit] border-2 border-success opacity-40 animate-pulse;
-    pointer-events: none;
-  }
-
-  .fade-in { animation: fadeIn 0.4s ease-out; }
-  @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .animate-float { animation: float 6s ease-in-out infinite; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
   }
 
+  /* ── Scroll helpers ── */
   .scroll-hide::-webkit-scrollbar { display: none; }
   .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 }

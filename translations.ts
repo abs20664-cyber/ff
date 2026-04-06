@@ -18,11 +18,8 @@ export const translations = {
       myProfile: "My Profile", economic: "Finance"
     },
     login: {
-<<<<<<< HEAD
-      title: "Secure Access Terminal", welcome: "Welcome back",
-=======
+      title: "Secure Access Terminal", 
       welcome: "Welcome back",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       email: "Email Address", password: "Password", authenticate: "Sign in",
       verifying: "Signing in...", forgot: "Forgot Credentials?", demoAccounts: "View demo accounts",
       clickToFill: "Click to Fill",
@@ -40,11 +37,8 @@ export const translations = {
       validSession: "Valid Session", helperMsg: "Present this terminal to your instructor to verify attendance and receive session materials."
     },
     schedule: {
-<<<<<<< HEAD
+      title: "Institutional Time Allocation", 
       cycleEntries: "No Cycle Entries",
-=======
-      title: "Institutional Time Allocation", cycleEntries: "No Cycle Entries",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       present: "Present", absent: "Absent", pending: "Pending", room: "Room",
       week: "Week", day: "Day"
     },
@@ -196,11 +190,8 @@ export const translations = {
       myProfile: "Mon Profil", economic: "Finance"
     },
     login: {
-<<<<<<< HEAD
-      title: "Terminal d'accès sécurisé", welcome: "Content de vous revoir",
-=======
+      title: "Terminal d'accès sécurisé", 
       welcome: "Content de vous revoir",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       email: "Adresse Email", password: "Mot de passe", authenticate: "Se connecter",
       verifying: "Connexion...", forgot: "Identifiants oubliés ?", demoAccounts: "Voir les comptes démo",
       clickToFill: "Cliquer pour remplir",
@@ -218,11 +209,8 @@ export const translations = {
       validSession: "Session Valide", helperMsg: "Présentez ce terminal à votre instructeur pour vérifier votre présence et recevoir les supports de cours."
     },
     schedule: {
-<<<<<<< HEAD
+      title: "Allocation du Temps Institutionnel", 
       cycleEntries: "Aucune entrée",
-=======
-      title: "Allocation du Temps Institutionnel", cycleEntries: "Aucune entrée",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       present: "Présent", absent: "Absent", pending: "En attente", room: "Salle",
       week: "Semaine", day: "Jour"
     },
@@ -265,7 +253,7 @@ export const translations = {
       seen: "Vu", seenAt: "Vu à", delivered: "Remis",
       deleteConfirm: "Supprimer ce message définitivement ?",
       editMessage: "Modifier le message", pinMessage: "Épingler", unpinMessage: "Désépingler",
-      pinned: "Messages épinglés", reactions: "Réactions", searchPlaceholder: "Rechercher des conversations...",
+      pinned: "Messages épinglés", reactions: "Reactions", searchPlaceholder: "Rechercher des conversations...",
       createGroup: "Créer un Canal de Diffusion", groupName: "Nom du Canal", groupDescription: "Description",
       participants: "Participants", noResults: "Aucun résultat",
       edited: "modifié", classGroups: "Canaux de Diffusion", dms: "Messages Directs", readOnlyChannel: "Seuls les enseignants peuvent diffuser dans ce canal."
@@ -374,11 +362,8 @@ export const translations = {
       myProfile: "ملفي الشخصي", economic: "المالية"
     },
     login: {
-<<<<<<< HEAD
-      title: "محطة الوصول الآمنة", welcome: "مرحباً بعودتك",
-=======
+      title: "محطة الوصول الآمنة", 
       welcome: "مرحباً بعودتك",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       email: "البريد الإلكتروني", password: "كلمة المرور", authenticate: "تسجيل الدخول",
       verifying: "جاري تسجيل الدخول...", forgot: "نسيت بيانات الدخول؟", demoAccounts: "عرض الحسابات التجريبية",
       clickToFill: "اضغط للملء",
@@ -396,11 +381,8 @@ export const translations = {
       validSession: "جلسة صالحة", helperMsg: "قدم هذا الجهاز لأستاذك لتأكيد حضورك واستلام مواد الحصة."
     },
     schedule: {
-<<<<<<< HEAD
+      title: "توزيع الوقت المؤسسي", 
       cycleEntries: "لا توجد حصص",
-=======
-      title: "توزيع الوقت المؤسسي", cycleEntries: "لا توجد حصص",
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
       present: "حاضر", absent: "غائب", pending: "قيد الانتظار", room: "قاعة",
       week: "أسبوع", day: "يوم"
     },

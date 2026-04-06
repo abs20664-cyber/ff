@@ -13,11 +13,8 @@ export interface User {
   age?: number;
   bio?: string;
   fieldOfStudy?: string;
-<<<<<<< HEAD
   subjectsTaughtIds?: string[];
-=======
-  subjectsTaught?:string;
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
+  subjectsTaught?: string;
   createdAt?: any;
   accountStatus?: 'active' | 'disabled' | 'suspended' | 'pending';
   paymentStatus?: 'paid' | 'unpaid' | 'pending';
@@ -25,10 +22,7 @@ export interface User {
   subscriptionDuration?: number; // in months
   subscriptionStartDate?: any;
   nextPaymentDate?: any;
-<<<<<<< HEAD
   mustChangePassword?: boolean;
-=======
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 }
 
 export interface StudentSubscription {
@@ -106,7 +100,6 @@ export interface ClassSession {
   attachments?: Attachment[];
 }
 
-<<<<<<< HEAD
 export interface RecurringSession {
   id: string;
   name: string;
@@ -125,8 +118,6 @@ export interface Subject {
   description?: string;
 }
 
-=======
->>>>>>> b2a5dce9 (feat: initialize project structure with core layout, authentication, and notification systems)
 export interface Material {
   id: string;
   studentId: string;
