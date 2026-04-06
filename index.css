@@ -248,8 +248,8 @@
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide;
   }
-  .badge-primary { @apply badge bg-[var(--primary-light)] text-primary; }
-  .badge-success { @apply badge bg-[var(--color-success-light)] text-success; }
+  .badge-primary { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[var(--primary-light)] text-primary; }
+  .badge-success { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide bg-[var(--color-success-light)] text-success; }
 
   /* ── Live glow ── */
   .live-now-glow {
